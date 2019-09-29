@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>DarkBASIC Professional Help File</title>
+</head>
+<body background="..\gfx\dbpro_bg.jpg">
+<!-- Page Header -->
+<center><table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><img src="..\gfx\dbph_head_1.jpg" width="102" height="51"></td>
+	<td><a href="..\main.htm"><img src="..\gfx\dbph_head_2.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\commands.htm"><img src="..\gfx\dbph_head_3.jpg" width="50" height="51" border="0"></a></td>
+	<td><a href="..\examples.htm"><img src="..\gfx\dbph_head_4.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\documents.htm"><img src="..\gfx\dbph_head_5.jpg" width="46" height="51" border="0"></a></td>
+	<td><a href="..\index.htm"><img src="..\gfx\dbph_head_6.jpg" width="56" height="51" border="0"></a></td>
+</tr>
+</table></center>
+<font face="Verdana">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<BR>
+<BR>
+<B><FONT SIZE=3><CENTER><FONT SIZE=3>TUTORIAL SIX<BR>
+Adding A Gun<BR>
+</FONT></CENTER></FONT></B><BR>
+It would be a very short shooter game if our player did not have a gun, and bullets to fire. In traditional first person style, the gun protrudes from the base of the screen and the bullets fire into a crosshair fixed to the center of the screen.<BR>
+<BR>
+</td></tr></table><CENTER>
+<IMG SRC=gfx\tutorial6.jpg><BR>
+</CENTER><br><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+<BR>
+The first step is to load all the models, sounds and images we will need to create the visual effect. We must load a gun model, some appropriate sounds, some sniper music and a crosshair for the screen:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT6A
+rem Load model for gun
+GunObj=2 : load object "models\gun\gun.x",GunObj
+
+rem Load all sounds
+GunSnd=1 : load sound "sounds\gun.wav",GunSnd
+ImpactSnd=2 : load 3dsound "sounds\impact.wav",ImpactSnd
+DieSnd=3 : load sound "sounds\die.wav",DieSnd
+
+rem Load music (WAV best for looping)
+MusicSnd=101 : load sound "sounds\ingame.wav",MusicSnd
+loop sound MusicSnd : set sound volume MusicSnd,80
+
+rem Load images
+FireImg=1 : load image "images\fire.bmp",FireImg
+CrossHairImg=2 : load image "images\crosshair.bmp",CrossHairImg
+</FONT></PRE>Once the media has been loaded, we can setup the objects before the game begins. The gun needs to be locked to the screen as it is part of the player camera now. We also need to create a bullet object and the crosshair for the screen:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT6B
+rem Setup gun for player
+lock object on GunObj
+scale object GunObj,2,2,4
+rotate object GunObj,270,0,0
+position object GunObj,0.5,-1,2
+disable object zdepth GunObj
+
+rem Create object for bullet
+BulletObj=3 : make object cube BulletObj,0.1
+
+rem Create simple sprite based crosshair
+sprite 1,320-16,240-16,CrossHairImg
+set sprite 1,0,1
+</FONT></PRE>When the user presses the mouse button, the gun must be fired. In firing the gun we must first make sure the gun has cooled down enough to allow another shot. This is a storyline to cover for a technical limitation as our tutorial game allows only one bullet to be fired at any one time. When the gun is fired, a sound is played and the bullet is created at the players position and rotated to face the target:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT6C
+rem Control gun firing
+if mouseclick()=1 and bullet=-50
+ bullet=100
+ play sound GunSnd
+ position object BulletObj,camera position x(0),camera position y(0),camera position z(0)
+ rotate object BulletObj,camera angle x(0),camera angle y(0),0
+ set bsp object collision 2,BulletObj,0.1,1
+ move object BulletObj,0.2
+endif
+</FONT></PRE>During the life of the bullet, we must move it forward and ensure it is destroyed when it hits a wall. We use the built in BSP collision setup in the previous code segment to make this task simple:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT6D
+rem Control life of bullet
+if bullet>0
+
+ rem If bullet collides with BSP world
+ if bsp collision hit(2)=1 or bulletimpact=1
+  rem End bullet on wall
+  position sound ImpactSnd,object position x(BulletObj), object position y(BulletObj), object position z(BulletObj)
+  play sound ImpactSnd
+  bulletimpact=0
+  bullet=0
+ else
+  rem Move bullet
+  dec bullet
+  move object BulletObj,0.5
+ endif
+
+ rem Bullet dies
+ if bullet=0
+  set bsp collision off 2
+ endif
+
+else
+ rem Gun recharge phase
+ if bullet>-50 then dec bullet
+endif
+</FONT></PRE><BR>
+CLICK <A HREF=..\main.htm>HERE</A> TO GO TO THE MAIN MENU<BR>
+<BR>
+<BR>
+</td></tr></table>
+<br>
+<!-- Page Footer -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center"><img src="..\gfx\dbph_foot_1.jpg" width="340" height="38"></td>
+</tr>
+</table>
+</body>
+</html>

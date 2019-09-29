@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>DarkBASIC Professional Help File</title>
+</head>
+<body background="..\gfx\dbpro_bg.jpg">
+<!-- Page Header -->
+<center><table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><img src="..\gfx\dbph_head_1.jpg" width="102" height="51"></td>
+	<td><a href="..\main.htm"><img src="..\gfx\dbph_head_2.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\commands.htm"><img src="..\gfx\dbph_head_3.jpg" width="50" height="51" border="0"></a></td>
+	<td><a href="..\examples.htm"><img src="..\gfx\dbph_head_4.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\documents.htm"><img src="..\gfx\dbph_head_5.jpg" width="46" height="51" border="0"></a></td>
+	<td><a href="..\index.htm"><img src="..\gfx\dbph_head_6.jpg" width="56" height="51" border="0"></a></td>
+</tr>
+</table></center>
+<font face="Verdana">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<BR>
+<BR>
+<B><FONT SIZE=3><CENTER><FONT SIZE=3>TUTORIAL SEVEN<BR>
+Adding Enemies<BR>
+</FONT></CENTER></FONT></B><BR>
+All shooters need something to shoot at. In this case we opt for those poor aliens again. They may have come to visit us with a message of peace, but our player is interested only in target practice.<BR>
+<BR>
+</td></tr></table><CENTER>
+<IMG SRC=gfx\tutorial7.jpg><BR>
+</CENTER><br><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+<BR>
+The first step is to load the models for our enemy objects:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT7A
+rem Load models for enemies
+EneObj=11
+for ene=EneObj to EneObj+4
+ load object "models\enemy\H-Alien Psionic-Idle.x",ene
+ append object "models\enemy\H-Alien Psionic-Die.x", ene, total object frames(ene)+1
+ position object ene,2,2,4
+ loop object ene,0,25
+next ene
+</FONT></PRE>Not forgetting the sounds we will need to give our enemies a realistic presence within the game. With additional use of 3D sounds and a scary alien breathing sound we can create the creepy effect of "what"s just around the corner" for our game:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT7B
+EnemySnd=11 : load 3dsound "sounds\enemy.wav",EnemySnd
+EnemygunSnd=12 : load 3dsound "sounds\enemygun.wav",EnemygunSnd
+EnemydieSnd=13 : load 3dsound "sounds\enemydie.wav",EnemydieSnd
+</FONT></PRE>Now we have loaded our enemy media, we must control them within our game. We must control each enemy, ensuring we can move, rotate, handle gravity and play 3D sound for them:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT7C
+rem Variable for finding closest enemy
+cdist#=9999.99
+
+rem Handle enemies within world
+for ene=EneObj to EneObj+4
+
+ rem If enemy alive
+ if object visible(ene)=1
+
+ rem Kill this enemy
+ killenemy=0
+
+ rem Move enemy on a slow curve for appearance of intelligence
+ if object angle z(ene)=0
+   yrotate object ene,wrapvalue(object angle y(ene)+2)
+ endif
+ if object angle z(ene)=1
+  yrotate object ene,wrapvalue(object angle y(ene)-2)
+ endif
+ if object angle z(ene)=2
+  move object ene,0.05
+ else
+  move object ene,0.02
+ endif
+
+ rem Switch direction of curve based on a random value
+ if rnd(200)=1 then zrotate object ene,rnd(1)
+
+ rem Handle gravity for enemy
+ position object ene,object position x(ene),object position y(ene)-0.01,object position z(ene)
+
+ rem Work out angle and distance between enemy and player
+ dx#=camera position x(0)-object position x(ene)
+ dy#=camera position y(0)-object position y(ene)
+ dz#=camera position z(0)-object position z(ene)
+ dist#=abs(sqrt(abs(dx#*dx#)+abs(dy#*dy#)+abs(dz#*dz#)))
+ viewa#=wrapvalue(atanfull(dx#,dz#))
+ obja#=wrapvalue(object angle y(ene))
+ if viewa#>180 then viewa#=viewa#-360
+ if obja#>180 then obja#=obja#-360
+
+ rem Closest enemy emits the enemy sound
+ if dist#<cdist#
+  cdist#=dist#
+  position sound EnemySnd,object position x(ene), object position y(ene), object position z(ene)
+  position sound EnemygunSnd,object position x(ene), object position y(ene), object position z(ene)
+  position sound EnemydieSnd,object position x(ene), object position y(ene), object position z(ene)
+ endif
+
+ rem Hide enemy when die animation over
+ if object frame(ene)>26+25 and object visible(ene)=1
+  killenemy=1
+ endif
+
+ if killenemy=1
+  set bsp collision off 3+(ene-EneObj)
+  hide object ene : dec aliensleft
+  killenemy=0
+ endif
+
+ rem If enemy alive ENDIF
+ endif
+
+next ene
+</FONT></PRE>To make sure that our aliens appear creepy, we will constantly play their presence sound effect, and scale the 3D sound listener so you only hear them when they are very close to the player:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT7D
+rem Start the enemy presence sound
+loop sound EnemySnd
+scale listener 0.1
+</FONT></PRE><BR>
+CLICK <A HREF=..\main.htm>HERE</A> TO GO TO THE MAIN MENU<BR>
+<BR>
+<BR>
+</td></tr></table>
+<br>
+<!-- Page Footer -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center"><img src="..\gfx\dbph_foot_1.jpg" width="340" height="38"></td>
+</tr>
+</table>
+</body>
+</html>

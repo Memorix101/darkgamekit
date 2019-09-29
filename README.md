@@ -20,11 +20,11 @@ The goal is to build a cross-platform compiler to compile DB/DBPro code to all t
 - Camera 0%
 - Basic 0%
 - Matrix 0%
-- Wolrd 0%
+- World 0%
 - Particle 0%
 - 3D Maths 0%
 - FTP 0%
 - Memblocks 0%
 - Multiplayer 0%
 - System 0%
-- Terrain
+- Terrain 0%

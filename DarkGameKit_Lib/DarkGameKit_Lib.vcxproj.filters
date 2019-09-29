@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{f22a0e60-4cdc-4d57-af52-0119d3d60398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text">
+      <UniqueIdentifier>{f78d0ba6-0802-41bf-b288-972137627385}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DarkGameKit.h" />
+    <ClInclude Include="DGKCore.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="DGKBase.h" />
+    <ClInclude Include="DGKText.h">
+      <Filter>Text</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DGKCore.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="DGKBase.cpp" />
+    <ClCompile Include="DGKText.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="BUGS.txt" />
+  </ItemGroup>
+</Project>
