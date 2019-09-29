@@ -3,7 +3,7 @@
 Dark Game Kit is a reimplementation of DarkBASIC Professional (IDE and compiler) written in C++ using raylib.
 It aims to provide native cross-platform support for Windows, Linux, Mac and other platforms.
 
-The goal is to build a cross-platform compiler to compile DB/DBPro code to all target platforms.
+The goal is to build a cross-platform compiler to compile DB/DBPro code for all target platforms.
 
 #### Command Progress
 - Core 0%
