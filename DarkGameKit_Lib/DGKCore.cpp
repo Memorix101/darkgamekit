@@ -35,7 +35,7 @@ void DGKCore::dbSync()
 
 void DGKCore::dbSyncRate(int rate)
 {
-
+	SetTargetFPS(rate); // Set our game to run at 60 frames-per-second
 }
 
 void DGKCore::dbFastsync(void)
@@ -68,12 +68,12 @@ void DGKCore::dbPrint(std::string text)
 		if (!fontScrolling) {
 			a.pos.x = print_cursor.x;;
 			if (print_cursor.y == 0) {
-				a.pos.y = 0 + ((printFontHeight)* printObjCount);// +(last_printPos.y));// * printRef.size()); 
+				a.pos.y = 0 + ((printFontHeight)*printObjCount);// +(last_printPos.y));// * printRef.size()); 
 				// 0 + 15 defaultFontHeight * printRef.size() = 0 ...
 			}
 			else
 			{
-				a.pos.y = print_cursor.y + ((printFontHeight)*(printObjCount));
+				a.pos.y = print_cursor.y + ((printFontHeight) * (printObjCount));
 			}
 		}
 		else
@@ -85,7 +85,7 @@ void DGKCore::dbPrint(std::string text)
 			}
 			else
 			{
-				a.pos.y = print_cursor.y + ((printFontHeight)*(printObjCount));
+				a.pos.y = print_cursor.y + ((printFontHeight) * (printObjCount));
 			}
 		}
 	}

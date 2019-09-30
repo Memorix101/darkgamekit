@@ -29,21 +29,6 @@ int g_iLevelStartTime = 0;
 
 class Game1 : public DarkGameKit {
 
-	// our "main"  - nice and small
-	/*void DarkGDK(void)
-	{
-
-		// our main gdk loop
-		while (LoopGDK())
-		{
-			// the game itself
-			game();
-			// dbSync will wait for the screen to finish drawing, and then draw our whole scene for us
-			dbSync();
-		}
-
-	}*/
-
 	DGKCore Core;
 
 	void DarkGDK() override
@@ -68,6 +53,21 @@ class Game1 : public DarkGameKit {
 		return 0;
 	}
 };
+
+	// our "main"  - nice and small
+	/*void DarkGDK(void)
+	{
+
+		// our main gdk loop
+		while (LoopGDK())
+		{
+			// the game itself
+			game();
+			// dbSync will wait for the screen to finish drawing, and then draw our whole scene for us
+			dbSync();
+		}
+
+	}*/
 
 // the game loop
 void game(void)
