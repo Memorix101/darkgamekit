@@ -1,0 +1,69 @@
+﻿  backdrop.cpp
+  Enemies.cpp
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\backdrop.cpp(1,10): fatal error C1083: Cannot open include file: 'DarkSDK.h': No such file or directory
+  Input.cpp
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Enemies.cpp(1,10): fatal error C1083: Cannot open include file: 'DarkSDK.h': No such file or directory
+  Invader Text.cpp
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Input.cpp(1,10): fatal error C1083: Cannot open include file: 'DarkSDK.h': No such file or directory
+  Player.cpp
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Invader Text.cpp(1,10): fatal error C1083: Cannot open include file: 'DarkSDK.h': No such file or directory
+  Sound.cpp
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(1,10): fatal error C1083: Cannot open include file: 'DarkSDK.h': No such file or directory
+  Dark Invaders.cpp
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.cpp(1,10): fatal error C1083: Cannot open include file: 'DarkSDK.h': No such file or directory
+D:\SourceTree\darkgamekit-raylib\DarkGameKit_Lib\DGKCore.h(13,20): error C3254: 'DGKCore': class contains explicit override '{ctor}' but does not derive from an interface that contains the function declaration
+D:\SourceTree\darkgamekit-raylib\DarkGameKit_Lib\DGKCore.h(13,20): error C3244: 'DGKCore::DGKCore(void)': this method was introduced by '<Unknown>' not by 'DarkGameKit'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(33,10): error C3861: 'LoopGDK': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(38,3): error C3861: 'dbSync': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(105,2): error C3861: 'dbSetDisplayMode': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(107,2): error C3861: 'dbSyncOn': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(109,2): error C3861: 'dbSyncRate': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(111,2): error C3861: 'dbMaximiseWindow': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(130,2): error C3861: 'dbStopSound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(132,2): error C3861: 'dbSetSoundSpeed': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(133,2): error C3861: 'dbPlaySound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(151,62): error C2664: 'void InvaderText(int,int,int,char *,bool,bool)': cannot convert argument 4 from 'const char [14]' to 'char *'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(151,31): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Invader Text.h(4,6): message : see declaration of 'InvaderText'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(152,68): error C2664: 'void InvaderText(int,int,int,char *,bool,bool)': cannot convert argument 4 from 'const char [20]' to 'char *'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(152,31): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Invader Text.h(4,6): message : see declaration of 'InvaderText'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(154,2): error C3861: 'dbSetSoundSpeed': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(155,2): error C3861: 'dbPlaySound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(193,2): error C3861: 'dbSetSoundSpeed': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(194,2): error C3861: 'dbPlaySound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(190,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(226,3): error C3861: 'dbLoopSound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(228,23): error C3861: 'dbTimer': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(254,9): error C3861: 'dbSpriteExist': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(255,5): error C3861: 'dbDeleteSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(257,3): error C3861: 'dbHideSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(266,2): error C3861: 'dbHideSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(268,2): error C3861: 'dbStopSound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(272,8): error C3861: 'dbSpriteExist': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(273,4): error C3861: 'dbDeleteSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(276,64): error C2664: 'void InvaderText(int,int,int,char *,bool,bool)': cannot convert argument 4 from 'const char [16]' to 'char *'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(276,31): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Invader Text.h(4,6): message : see declaration of 'InvaderText'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(277,59): error C2664: 'void InvaderText(int,int,int,char *,bool,bool)': cannot convert argument 4 from 'const char [11]' to 'char *'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(277,31): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Invader Text.h(4,6): message : see declaration of 'InvaderText'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(301,3): error C3861: 'dbShowSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(316,2): error C3861: 'dbHideSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(318,2): error C3861: 'dbStopSound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(320,2): error C3861: 'dbStopSound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(326,59): error C2664: 'void InvaderText(int,int,int,char *,bool,bool)': cannot convert argument 4 from 'const char [11]' to 'char *'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(326,31): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Invader Text.h(4,6): message : see declaration of 'InvaderText'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(329,2): error C3861: 'dbSetSoundSpeed': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(330,2): error C3861: 'dbPlaySound': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(334,8): error C3861: 'dbSpriteExist': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(335,4): error C3861: 'dbDeleteSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(340,8): error C3861: 'dbSpriteExist': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(341,4): error C3861: 'dbDeleteSprite': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(344,2): error C3861: 'dbSync': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(346,2): error C3861: 'dbWait': identifier not found
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(325,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Generating Code...
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
