@@ -56,9 +56,19 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 
 	framesCounter++;
 
-	framesSpeed = iDelay*0.05f;
+	if (iDelay <= 0)
+		iDelay = 1;
 
-	if(framesSpeed <= 0)
+	if (iDelay / 0.02f > 100)
+	{
+		framesSpeed = iDelay * 0.02f;
+	}
+	else
+	{
+		framesSpeed = iDelay / 0.02f;
+	}
+
+	if (framesSpeed <= 0)
 		framesSpeed = 1;
 
 	if (framesCounter >= (60 / framesSpeed))
