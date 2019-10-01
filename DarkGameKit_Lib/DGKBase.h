@@ -18,14 +18,14 @@
 	bool quit;
 	int sync_i;*/
 
-static int fontSize;
-static int fontHeight;
-static int fontWidth;
-static int printFontHeight;
-static int printFontWidth;
-static bool fontScrolling;
-static std::string fontTTF;
-static std::string system_font;
+extern int fontSize;
+extern int fontHeight;
+extern int fontWidth;
+extern int printFontHeight;
+extern int printFontWidth;
+extern bool fontScrolling;
+extern std::string fontTTF;
+extern std::string system_font;
 
 void DrawSprite(Rectangle rect);
 void DrawPrint(Rectangle rect, std::string text);

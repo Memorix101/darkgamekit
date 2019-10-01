@@ -6,7 +6,6 @@ std::vector<textObj> textRef;
 bool printOnce = false;
 float a = 10;
 
-/*
 int fontHeight = 0;
 int fontWidth = 0;
 int printFontHeight = 15; //default if fontsize 32
@@ -14,7 +13,7 @@ int printFontWidth;
 bool fontScrolling = false;
 int fontSize = 32;
 std::string fontTTF = "TilWeb.ttf"; //vgafix.fon
-std::string system_font;*/
+std::string system_font;
 
 /*DarkGameKit()
 {
@@ -525,6 +524,7 @@ void Init()
 {
 	InitWindow(window_width, window_height, window_title.c_str());
 	SetIcon();
+	//SetTargetFPS(60);
 	//InitFont();
 }
 
@@ -601,8 +601,8 @@ void Run()
 			CallOnce();
 			a++;
 			std::string test_txt = "abc " + std::to_string(a);
-			DrawText(test_txt.c_str(), 10, 10, 12, WHITE);
-			//DrawFPS(10, 10);
+			DrawText(test_txt.c_str(), 200, 10, 12, WHITE);
+			DrawFPS(10, 10);	
 		EndDrawing();
 		quit = false;
 	//}
