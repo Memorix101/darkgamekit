@@ -28,8 +28,9 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 {
 	Texture2D tex2D = LoadTexture(szFilename);        // Texture loading
 	Rectangle frameRec = { 0.0f, 0.0f, tex2D.width / iAcross, tex2D.height / iDown };
- 	
+
 	Sprite _sprite;
+	_sprite.id = iSprite;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
 	_sprite.frames_x = iAcross;
@@ -39,7 +40,19 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 
 void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 {
-	//Rectangle frameRec = { 0, 0, spriteRef[iSprite - 1].rect.width, spriteRef[iSprite - 1].rect.height };
+	//get sprite id in vector
+	int sprite_id = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			sprite_id = i;
+		}
+		else
+		{
+			//error
+		}
+	}
 
 	framesCounter++;
 
@@ -49,22 +62,22 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		currentFrame++;
 		//std::cout << "currentFrame " << std::endl;
 
-		if (currentFrame > spriteRef[iSprite - 1].frames_x)
-		{			
+		if (currentFrame > spriteRef[sprite_id].frames_x)
+		{
 			currentFrame = 0;
-			spriteRef[iSprite - 1].rect.y += spriteRef[iSprite - 1].rect.height;;
+			spriteRef[sprite_id].rect.y += spriteRef[sprite_id].rect.height;;
 		}
 
-		if(spriteRef[iSprite - 1].rect.y > spriteRef[iSprite - 1].texture2d.height)
+		if (spriteRef[sprite_id].rect.y > spriteRef[sprite_id].texture2d.height)
 		{
-			spriteRef[iSprite - 1].rect.y = 0; // reset
+			spriteRef[sprite_id].rect.y = 0; // reset
 		}
-		
-		spriteRef[iSprite - 1].rect.x = (float)currentFrame * spriteRef[iSprite - 1].rect.width;
+
+		spriteRef[sprite_id].rect.x = (float)currentFrame * spriteRef[sprite_id].rect.width;
 		//std::cout << "currentFrame " << currentFrame << " X " << spriteRef[iSprite - 1].rect.x << " Y " << spriteRef[iSprite - 1].rect.y << std::endl;
 	}
-	
-	DrawTextureRec(spriteRef[iSprite - 1].texture2d, spriteRef[iSprite - 1].rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
+
+	DrawTextureRec(spriteRef[sprite_id].texture2d, spriteRef[sprite_id].rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
 }
 
 void dbSetSpriteFrame(int iSprite, int iFrame) {}

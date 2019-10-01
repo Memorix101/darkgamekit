@@ -58,6 +58,7 @@ extern std::vector<textObj> textRef;
 
 struct Sprite
 {
+	int id;
 	Texture2D texture2d;
 	Rectangle rect;
 	float frames_x;
