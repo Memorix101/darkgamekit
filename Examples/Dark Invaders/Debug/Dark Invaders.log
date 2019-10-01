@@ -46,10 +46,8 @@ C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(64,2): e
 C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(66,2): error C3861: 'dbLoadImage': identifier not found
 C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(209,3): error C3861: 'dbPlaySound': identifier not found
 C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(242,6): error C3861: 'dbPlaySound': identifier not found
-C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(271,5): error C3861: 'dbPlaySound': identifier not found
-C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(352,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   Sound.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp(271,5): error C3861: 'dbPlaySound': identifier not found
 C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.cpp(6,2): error C3861: 'dbLoadSound': identifier not found
 C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.cpp(7,2): error C3861: 'dbLoadSound': identifier not found
 C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.cpp(8,2): error C3861: 'dbLoadSound': identifier not found
@@ -71,8 +69,6 @@ D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(154,2)
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(155,2): error C3861: 'dbPlaySound': identifier not found
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(193,2): error C3861: 'dbSetSoundSpeed': identifier not found
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(194,2): error C3861: 'dbPlaySound': identifier not found
-D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(190,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(226,3): error C3861: 'dbLoopSound': identifier not found
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(268,2): error C3861: 'dbStopSound': identifier not found
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(276,56): error C2664: 'void InvaderText(int,int,int,char *,bool,bool)': cannot convert argument 4 from 'const char [16]' to 'char *'
@@ -87,7 +83,5 @@ D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(326,51
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(326,26): message : Conversion from string literal loses const qualifier (see /Zc:strictStrings)
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Invader Text.h(4,6): message : see declaration of 'InvaderText'
 D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(329,2): error C3861: 'dbSetSoundSpeed': identifier not found
-D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(330,2): error C3861: 'dbPlaySound': identifier not found
-D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(325,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   Generating Code...
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+D:\SourceTree\darkgamekit-raylib\Examples\Dark Invaders\Dark Invaders.cpp(330,2): error C3861: 'dbPlaySound': identifier not found
