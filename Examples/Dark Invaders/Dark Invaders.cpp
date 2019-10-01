@@ -27,47 +27,19 @@ int g_iLevel = 1;
 // how much time has passed
 int g_iLevelStartTime = 0;
 
-class Game1 : public DarkGameKit {
+// our "main"  - nice and small
+void DarkGDK(void)
+{
 
-	DGKCore Core;
-
-	void DarkGDK() override
-	{
-
-	}
-
-	void LoopGDK() override
+	// our main gdk loop
+	while (LoopGDK())
 	{
 		// the game itself
 		game();
 		// dbSync will wait for the screen to finish drawing, and then draw our whole scene for us
 		dbSync();
 	}
-
-	int main(int argc, char* argv[])
-	{
-		DarkGameKit* game1 = new Game1;
-		game1->Init();
-		game1->Run();
-
-		return 0;
-	}
-};
-
-	// our "main"  - nice and small
-	/*void DarkGDK(void)
-	{
-
-		// our main gdk loop
-		while (LoopGDK())
-		{
-			// the game itself
-			game();
-			// dbSync will wait for the screen to finish drawing, and then draw our whole scene for us
-			dbSync();
-		}
-
-	}*/
+}
 
 // the game loop
 void game(void)
@@ -215,7 +187,7 @@ void gameLevel(void)
 {
 	// use our custom text routine to display the level
 	char czLevel[20];
-	sprintf(czLevel, "LEVEL %d", g_iLevel);
+	sprintf_s(czLevel, "LEVEL %d", g_iLevel);
 	InvaderText(0, 340, 32, czLevel, true, true);
 	// change the sound speed of sound 1 again to give a different twist on the sound
 	dbSetSoundSpeed(1, 8000);
@@ -350,7 +322,7 @@ void gameOver(void)
 	playerUpdateScore();
 	// show the game over text and the players final score
 	char szScore[20];
-	sprintf(szScore, "YOU SCORED: %d", g_iPlayerScore);
+	sprintf_s(szScore, "YOU SCORED: %d", g_iPlayerScore);
 	InvaderText(0, 340, 32, "GAME OVER!", true, false);
 	InvaderText(0, 400, 32, szScore, true, false);
 	// change the speed of our title screen sound and player it
@@ -376,4 +348,12 @@ void gameOver(void)
 	invaderTextClear();
 	// head back to the title screen
 	g_eGameMode = eGameTitle;
+}
+
+
+int main(void) //int argc, char* argv[]
+{
+	StartGDK();
+	DarkGDK();
+	return 0;
 }
