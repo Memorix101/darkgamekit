@@ -1,29 +1,37 @@
 #include "DGKBase.h"
 
+std::vector<printObj>  printRef;
+std::vector<printObj>  printCopy;
+std::vector<textObj> textRef;
+bool printOnce = false;
+float a = 10;
 
-std::vector<DarkGameKit::printObj>  DarkGameKit::printRef;
-std::vector<DarkGameKit::printObj>  DarkGameKit::printCopy;
-bool DarkGameKit::printOnce = false;
+/*
+int fontHeight = 0;
+int fontWidth = 0;
+int printFontHeight = 15; //default if fontsize 32
+int printFontWidth;
+bool fontScrolling = false;
+int fontSize = 32;
+std::string fontTTF = "TilWeb.ttf"; //vgafix.fon
+std::string system_font;*/
 
-int DarkGameKit::fontHeight = 0;
-int DarkGameKit::fontWidth = 0;
-int DarkGameKit::printFontHeight = 15; //default if fontsize 32
-int DarkGameKit::printFontWidth;
-bool DarkGameKit::fontScrolling = false;
-int DarkGameKit::fontSize = 32;
-std::string DarkGameKit::fontTTF = "TilWeb.ttf"; //vgafix.fon
-std::string DarkGameKit::system_font;
-
-DarkGameKit::DarkGameKit()
+/*DarkGameKit()
 {
 	window_title = "Dark Game Kit";
 	window_width = 640;
 	window_height = 480;
 	quit = false;
 	sync_i = 0;
-}
+}*/
 
-int DarkGameKit::GetFontSize(std::string text)
+// private
+std::string	window_title = "Dark Game Kit";
+bool initlized = false;
+int	window_width = 640;
+int	window_height = 480;
+
+int GetFontSize(std::string text)
 {
 	Font ttf_font = LoadFont(system_font.c_str());
 	ttf_font.baseSize = fontSize;
@@ -32,9 +40,8 @@ int DarkGameKit::GetFontSize(std::string text)
 	return fontWidth;
 }
 
-void DarkGameKit::SetIcon()
+void SetIcon()
 {
-
 	static unsigned char DGK_ICON_DATA[9216] = { 0xff,
 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff,
 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff, 0xff, 0xff, 0x0, 0xff,
@@ -502,7 +509,7 @@ void DarkGameKit::SetIcon()
 	SetWindowIcon(icon);
 }
 
-void DarkGameKit::SetSystemFont()
+void SetSystemFont()
 {
 #ifdef WIN32
 	system_font = fontTTF;
@@ -514,14 +521,14 @@ void DarkGameKit::SetSystemFont()
 #endif
 }
 
-void DarkGameKit::Init()
+void Init()
 {
-	InitWindow(window_width, window_height, window_title);
+	InitWindow(window_width, window_height, window_title.c_str());
 	SetIcon();
 	//InitFont();
 }
 
-void DarkGameKit::InitFont()
+void InitFont()
 {
 	/*SetSystemFont();
 	Font ttf_font = LoadFont(system_font.c_str());
@@ -530,11 +537,12 @@ void DarkGameKit::InitFont()
 	UnloadFont(ttf_font);*/
 }
 
-void DarkGameKit::CallOnce()
+void CallOnce()
 {
 	for (static bool first = true; first; first = false) {
-		DarkGDK();
+		//DarkGDK();
 		printCopy = printRef;
+		std::cout << "printSize: " << printRef.size() << std::endl;
 	}
 
 	for (int i = 0; i < printCopy.size(); i++)
@@ -549,6 +557,9 @@ void DarkGameKit::CallOnce()
 		DrawFont(ref.pos, ref.text, ref.fontSize);
 	}
 
+	//std::cout << "printRef.size() " << printRef.size() << std::endl;
+	//std::cout << "printCopy.size() " << printCopy.size() << std::endl;
+	
 	//update position to enable scroll effect
 	for (int b = 0; b < printRef.size(); b++)
 	{
@@ -573,52 +584,58 @@ void DarkGameKit::CallOnce()
 			printCopy[a].pos.x = printRef[a].pos.x;
 			printCopy[a].pos.y = printRef[a].pos.y;
 		}
-
+		
 		DrawPrint(printRef[b].pos, printRef[b].text);
-}
-}
-
-void DarkGameKit::Run()
-{
-	while (!quit) {
-		BeginDrawing();
-		ClearBackground(BLACK);
-
-		// DrawSprite({0, 0}); //Test
-		DrawTrailModeWatermark();
-		CallOnce();
-		LoopGDK();
-
-		DrawFPS(10, 10);
-		EndDrawing();
 	}
+}
 
+void Run()
+{
+	bool quit = true;
+	//while (quit) {
+		BeginDrawing();
+			ClearBackground(BLACK);
+			// Test
+			//DrawSprite({a++, 0}); 
+			DrawTrailModeWatermark();
+			CallOnce();
+			a++;
+			std::string test_txt = "abc " + std::to_string(a);
+			DrawText(test_txt.c_str(), 10, 10, 12, WHITE);
+			//DrawFPS(10, 10);
+		EndDrawing();
+		quit = false;
+	//}
+	
 	// Always be sure to clean up 
-	CloseWindow(); // Close window and OpenGL context
+	//CloseWindow(); // Close window and OpenGL context
 }
 
-void DarkGameKit::DarkGDK()
+void StartGDK()
 {
-	printf("game\n");
+	printf("DarkGDK Alpha 0.1\n");
+	Init();	
+	//Run();
 }
 
-void DarkGameKit::LoopGDK()
+bool LoopGDK()
 {
-	printf("loop\n");
+	Run();
+	return !WindowShouldClose(); //replace that; DEBUG only
 }
 
-void DarkGameKit::DrawSprite(Rectangle rect)
+void DrawSprite(Rectangle rect)
 {
 	Texture2D tex = LoadTexture("nalacat.jpg"); // clean this !!!
 	DrawTexture(tex, rect.x, rect.x, WHITE);
 }
 
-void DarkGameKit::DrawPrint(Rectangle rect, std::string text)
+void DrawPrint(Rectangle rect, std::string text)
 {
 	DrawText(text.c_str(), rect.x, rect.y, 16, WHITE);
 }
 
-void DarkGameKit::DrawFont(struct Rectangle rect, std::string text, int _fontSize)
+void DrawFont(struct Rectangle rect, std::string text, int _fontSize)
 {
 	fontSize = _fontSize;
 	//Font ttf_font = LoadFont(system_font.c_str());
@@ -626,7 +643,7 @@ void DarkGameKit::DrawFont(struct Rectangle rect, std::string text, int _fontSiz
 	DrawText(text.c_str(), rect.x, rect.y, fontSize, WHITE);
 }
 
-void DarkGameKit::DrawTrailModeWatermark()
+void DrawTrailModeWatermark()
 {
 	Rectangle rect;
 	std::string text = "DARK GAME KIT ALPHA ENGINE";

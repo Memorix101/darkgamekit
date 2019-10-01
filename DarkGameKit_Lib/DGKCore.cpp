@@ -1,9 +1,13 @@
 #include "DGKCore.h"
 
+Rectangle print_cursor;
+Rectangle last_print_cursor;
+Rectangle last_printPos;
+int printObjCount;
 
 //std::vector<std::function<void()>> q;
 
-DGKCore::DGKCore()
+/*DGKCore()
 {
 	print_cursor.x = 0;
 	print_cursor.y = 0;
@@ -16,45 +20,45 @@ DGKCore::DGKCore()
 	last_printPos.height = 0;
 
 	printObjCount = 0;
-}
+}*/
 
-void DGKCore::dbSyncOn()
+void dbSyncOn()
 {
-	sync_i = 1;
+	//sync_i = 1;
 }
 
-void DGKCore::dbSyncOff()
+void dbSyncOff()
 {
-	sync_i = 0;
+	//sync_i = 0;
 }
 
-void DGKCore::dbSync()
+void dbSync()
 {
 
 }
 
-void DGKCore::dbSyncRate(int rate)
+void dbSyncRate(int rate)
 {
 	SetTargetFPS(rate); // Set our game to run at 60 frames-per-second
 }
 
-void DGKCore::dbFastsync(void)
+void dbFastsync(void)
 {
 
 }
 
-void DGKCore::dbCLS(void)
+void dbCLS(void)
 {
 
 }
 
-void DGKCore::dbSetCursor(int x, int y)
+void dbSetCursor(int x, int y)
 {
 	print_cursor.x = x;
 	print_cursor.y = y;
 }
 
-void DGKCore::dbPrint(std::string text)
+void dbPrint(std::string text)
 {
 	printObj a;
 	a.text = text;
@@ -100,6 +104,7 @@ void DGKCore::dbPrint(std::string text)
 		a.pos.y = 0;
 	}
 
+	//std::cout << " printRef.size() " << printRef.size() << std::endl;
 	printRef.push_back(a);
 
 	printObjCount++;
@@ -122,187 +127,187 @@ void DGKCore::dbPrint(std::string text)
 	//q.push_back(std::bind(drawfont, pos, t)); //https://stackoverflow.com/questions/10565019/c-stdvector-of-stdfunction-with-arbitrary-signatures
 }
 
-void DGKCore::dbInput(std::string text, int variable)
+void dbInput(std::string text, int variable)
 {
 
 }
 
-void DGKCore::dbWait(int ms)
-{
-	//SDL_Delay(ms);
-}
-
-void DGKCore::dbSleep(int ms)
+void dbWait(int ms)
 {
 	//SDL_Delay(ms);
 }
 
-void DGKCore::dbWaitKey(void)
+void dbSleep(int ms)
+{
+	//SDL_Delay(ms);
+}
+
+void dbWaitKey(void)
 {
 
 }
 
-void DGKCore::dbWaitMouse(void)
+void dbWaitMouse(void)
 {
 
 }
 
-void DGKCore::dbSuspendForKey(void)
+void dbSuspendForKey(void)
 {
 
 }
 
-void DGKCore::dbSuspendForMouse(void)
+void dbSuspendForMouse(void)
 {
 
 }
 
-void DGKCore::dbDrawToBack(void)
+void dbDrawToBack(void)
 {
 
 }
 
-void DGKCore::dbDrawToFront(void)
+void dbDrawToFront(void)
 {
 
 }
 
-void DGKCore::dbDrawSpritesFirst(void)
+void dbDrawSpritesFirst(void)
 {
 
 }
 
-void DGKCore::dbDrawSpritesLast(void)
+void dbDrawSpritesLast(void)
 {
 
 }
 
-void DGKCore::dbRandomize(int seed)
+void dbRandomize(int seed)
 {
 
 }
 
-int DGKCore::dbRND(int range)
+int dbRND(int range)
 {
 	return rand() % (range + 1);
 }
 
-float DGKCore::dbCOS(float value)
+float dbCOS(float value)
 {
 	return cos(value);
 }
 
-float DGKCore::dbSIN(float value)
+float dbSIN(float value)
 {
 	return sin(value);
 }
 
-float DGKCore::dbTAN(float value)
+float dbTAN(float value)
 {
 	return tan(value);
 }
 
-float DGKCore::dbACOS(float value)
+float dbACOS(float value)
 {
 	return acos(value);
 }
 
-float DGKCore::dbASIN(float value)
+float dbASIN(float value)
 {
 	return asin(value);
 }
 
-float DGKCore::dbATANFULL(float x, float y)
+float dbATANFULL(float x, float y)
 {
 	return atan2(x, y);
 }
 
-float DGKCore::dbHCOS(float value)
+float dbHCOS(float value)
 {
 	return cosh(value);
 }
 
-float DGKCore::dbHSIN(float value)
+float dbHSIN(float value)
 {
 	return sinh(value);
 }
 
-float DGKCore::dbHTAN(float value)
+float dbHTAN(float value)
 {
 	return tanh(value);
 }
 
-float DGKCore::dbSQRT(float value)
+float dbSQRT(float value)
 {
 	return sqrt(value);
 }
 
-float DGKCore::dbABS(float value)
+float dbABS(float value)
 {
 	return abs(value);
 }
 
-int DGKCore::dbINT(float value)
+int dbINT(float value)
 {
 	return (int)value;
 }
 
-float DGKCore::dbEXP(float value)
+float dbEXP(float value)
 {
 	return NULL;
 }
 
-int DGKCore::dbTimer(void)
+int dbTimer(void)
 {
 	return NULL;
 }
 
-char* DGKCore::dbInKey$(void)
+char* dbInKey$(void)
 {
 	return NULL;
 }
 
-char* DGKCore::dbCL$(void)
+char* dbCL$(void)
 {
 	return NULL;
 }
 
-char* DGKCore::dbGetDate$(void)
+char* dbGetDate$(void)
 {
 	return NULL;
 }
 
-char* DGKCore::dbGetTime$(void)
+char* dbGetTime$(void)
 {
 	return NULL;
 }
 
-float DGKCore::dbCurveValue(float destination, float curve, float speed)
+float dbCurveValue(float destination, float curve, float speed)
 {
 	return NULL;
 }
 
-float DGKCore::dbWrapValue(float angle)
+float dbWrapValue(float angle)
 {
 	return NULL;
 }
 
-float DGKCore::dbNewXValue(float x, float angle, float step)
+float dbNewXValue(float x, float angle, float step)
 {
 	return NULL;
 }
 
-float DGKCore::dbNewYValue(float x, float angle, float step)
+float dbNewYValue(float x, float angle, float step)
 {
 	return NULL;
 }
 
-float DGKCore::dbNewZValue(float x, float angle, float step)
+float dbNewZValue(float x, float angle, float step)
 {
 	return NULL;
 }
 
-float DGKCore::dvCurveValue(float fDestination, float fCurve, float fSpeed)
+float dvCurveValue(float fDestination, float fCurve, float fSpeed)
 {
 	return NULL;
 }

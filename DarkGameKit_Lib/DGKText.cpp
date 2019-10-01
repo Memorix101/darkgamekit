@@ -1,8 +1,8 @@
 #include "DGKText.h"
 
-std::vector<DarkGameKit::textObj>  DarkGameKit::textRef;
+//std::vector<textObj> textRef;
 
-void DGKText::dbText(int x, int y, std::string text)
+void dbText(int x, int y, std::string text)
 {
 	textObj a;
 	a.text = text;
@@ -13,7 +13,7 @@ void DGKText::dbText(int x, int y, std::string text)
 	textRef.push_back(a);
 }
 
-void DGKText::dbCenterText(int x, int y, std::string text)
+void dbCenterText(int x, int y, std::string text)
 {
 	textObj a;
 	a.text = text;
@@ -24,143 +24,143 @@ void DGKText::dbCenterText(int x, int y, std::string text)
 	textRef.push_back(a);
 }
 
-void DGKText::dbSetTextFont(std::string font)
+void dbSetTextFont(std::string font)
 {
 	fontTTF = font;
 	SetSystemFont();
 }
 
-void DGKText::dbSetTextFont(std::string font, int charset) //overload
+void dbSetTextFont(std::string font, int charset) //overload
 {
 	
 }
 
-void DGKText::dbSetTextSize(int size)
+void dbSetTextSize(int size)
 {
 	fontSize = size;
 }
 
-void DGKText::dbSetTextOpaque(void)
+void dbSetTextOpaque(void)
 {
 
 }
 
-void DGKText::dbSetTextTransparent(void)
+void dbSetTextTransparent(void)
 {
 
 }
 
-void DGKText::dbSetTextToNormal(void)
+void dbSetTextToNormal(void)
 {
 
 }
 
-void DGKText::dbSetTextToItalic(void)
+void dbSetTextToItalic(void)
 {
 
 }
 
-void DGKText::dbSetTextToBoldItalic(void)
+void dbSetTextToBoldItalic(void)
 {
 
 }
 
-void DGKText::dbPerformCheckListForFonts(void)
+void dbPerformCheckListForFonts(void)
 {
 
 }
 
-int DGKText::dbTextBackgroundType(void)
-{
-	return NULL;
-}
-
-char* DGKText::dbTextFont$(void)
+int dbTextBackgroundType(void)
 {
 	return NULL;
 }
 
-int DGKText::dbTextSize(void)
+char* dbTextFont$(void)
 {
 	return NULL;
 }
 
-int DGKText::dbTextStyle(void)
+int dbTextSize(void)
 {
 	return NULL;
 }
 
-int DGKText::dbTextWidth(std::string text)
+int dbTextStyle(void)
 {
 	return NULL;
 }
 
-int DGKText::dbTextHeight(std::string text)
+int dbTextWidth(std::string text)
 {
 	return NULL;
 }
 
-int DGKText::dbAsc(std::string text)
+int dbTextHeight(std::string text)
 {
 	return NULL;
 }
 
-char* DGKText::dbBin$(int value)
+int dbAsc(std::string text)
 {
 	return NULL;
 }
 
-char* DGKText::dbChr$(int value)
+char* dbBin$(int value)
 {
 	return NULL;
 }
 
-char* DGKText::dbHex$(int value)
+char* dbChr$(int value)
 {
 	return NULL;
 }
 
-char* DGKText::dbLeft$(std::string text, int value)
+char* dbHex$(int value)
 {
 	return NULL;
 }
 
-int DGKText::dbLen(std::string text)
+char* dbLeft$(std::string text, int value)
 {
 	return NULL;
 }
 
-char* DGKText::dbLower$(std::string text)
+int dbLen(std::string text)
 {
 	return NULL;
 }
 
-char* DGKText::dbMid$(std::string text, int value)
+char* dbLower$(std::string text)
 {
 	return NULL;
 }
 
-char* DGKText::dbRight$(std::string text, int value)
+char* dbMid$(std::string text, int value)
 {
 	return NULL;
 }
 
-char* DGKText::dbStr$(std::string text, int value)
+char* dbRight$(std::string text, int value)
 {
 	return NULL;
 }
 
-char* DGKText::dbUpper$(std::string text)
+char* dbStr$(std::string text, int value)
 {
 	return NULL;
 }
 
-int DGKText::dbVal(std::string text)
+char* dbUpper$(std::string text)
 {
 	return NULL;
 }
 
-char* DGKText::dbSpace$(int space)
+int dbVal(std::string text)
+{
+	return NULL;
+}
+
+char* dbSpace$(int space)
 {
 	return NULL;
 }
