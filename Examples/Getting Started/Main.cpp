@@ -5,7 +5,7 @@
 // it on screen by using a sprite
 
 // whenever using Dark GDK you must include the header file
-#include "../../DarkGameKit_Lib/DarkGameKit.h"
+#include <DarkGameKit.h>
 
 // the main entry point for the application is this function
 void DarkGDK ( void )

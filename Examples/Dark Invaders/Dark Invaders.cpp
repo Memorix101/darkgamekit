@@ -5,7 +5,7 @@
 
 // Converted to DarkGameKit by Memorix101 - https://gitlab.com/Memorix101/darkgamekit
 
-#include "../../DarkGameKit_Lib/DarkGameKit.h"
+#include <DarkGameKit.h>
 #include "Dark Invaders.h"
 #include "backdrop.h"
 #include "Invader Text.h"
