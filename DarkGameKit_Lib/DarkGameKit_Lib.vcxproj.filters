@@ -7,6 +7,9 @@
     <Filter Include="Text">
       <UniqueIdentifier>{f78d0ba6-0802-41bf-b288-972137627385}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sprite">
+      <UniqueIdentifier>{69c7ec88-f8ca-4083-9edf-0f88c662c2d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DarkGameKit.h" />
@@ -18,6 +21,9 @@
     <ClInclude Include="DGKText.h">
       <Filter>Text</Filter>
     </ClInclude>
+    <ClInclude Include="DGKSprite.h">
+      <Filter>Sprite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DGKCore.cpp">
@@ -26,6 +32,9 @@
     <ClCompile Include="DGKBase.cpp" />
     <ClCompile Include="DGKText.cpp">
       <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="DGKSprite.cpp">
+      <Filter>Sprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

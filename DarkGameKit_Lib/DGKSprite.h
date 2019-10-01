@@ -1,0 +1,50 @@
+#pragma once
+#include "DGKBase.h"
+
+void dbSprite ( int iSprite, int iX, int iY, int iImage );
+void dbSetSprite ( int iSprite, int iBackSave, int iTransparency );
+void dbDeleteSprite ( int iSprite );
+void dbCloneSprite ( int iSprite, int iDestination );
+void dbShowSprite ( int iSprite );
+void dbHideSprite ( int iSprite );
+void dbHideAllSprites ( void );
+void dbShowAllSprites ( void );
+void dbMoveSprite ( int iNUmber, float fVelocity );
+void dbOffsetSprite ( int iSprite, int iX, int iY );
+void dbScaleSprite ( int iSprite, int iScale );
+void dbSizeSprite ( int iSprite, int iX, int iY );
+void dbStretchSprite ( int iSprite, int iX, int iY );
+void dbRotateSprite ( int iSprite, float fAngle );
+void dbFlipSprite ( int iSprite );
+void dbMirrorSprite ( int iSprite );
+void dbPasteSprite ( int iSprite, int iX, int iY );
+void dbCreateAnimatedSprite ( int iSprite, const char* szFilename, int iAcross, int iDown, int iImage );
+void dbPlaySprite ( int iSprite, int iStart, int iEnd, int iDelay );
+void dbSetSpriteFrame ( int iSprite, int iFrame );
+void dbSetSpritePriority ( int iSprite, int iPriority );
+void dbSetSpriteImage ( int iSprite, int iImage );
+void dbSetSpriteAlpha ( int iSprite, int iAlpha );
+void dbSetSpriteDiffuse ( int iSprite, int iRed, int iGreen, int iBlue );
+void dbSetSpriteTextureCoord ( int iSprite, int iVertex, float fU, float fV );
+
+int dbSpriteExist ( int iSprite );
+int dbSpriteX ( int iSprite );
+int dbSpriteY ( int iSprite );
+int dbSpriteOffsetX ( int iSprite );
+int dbSpriteOffsetY ( int iSprite );
+int dbSpriteScaleX ( int iSprite );
+int dbSpriteScaleY ( int iSprite );
+int dbSpriteWidth ( int iSprite );
+int dbSpriteHeight ( int iSprite );
+int dbSpriteImage ( int iSprite );
+int dbSpriteMirrored ( int iSprite );
+int dbSpriteFlipped ( int iSprite );
+int dbSpriteHit ( int iSprite, int iTarget );
+int dbSpriteCollision ( int iSprite, int iTarget );
+float dbSpriteAngle ( int iSprite );
+int dbSpriteFrame ( int iSprite );
+int dbSpriteAlpha ( int iSprite );
+int dbSpriteRed ( int iSprite );
+int dbSpriteGreen ( int iSprite );
+int dbSpriteBlue ( int iSprite );
+int dbSpriteVisible ( int iSprite );

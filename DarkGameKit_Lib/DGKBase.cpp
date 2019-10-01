@@ -6,6 +6,8 @@ std::vector<textObj> textRef;
 bool printOnce = false;
 float a = 10;
 
+std::vector<Sprite> spriteRef;
+
 int fontHeight = 0;
 int fontWidth = 0;
 int printFontHeight = 15; //default if fontsize 32
@@ -559,7 +561,7 @@ void CallOnce()
 
 	//std::cout << "printRef.size() " << printRef.size() << std::endl;
 	//std::cout << "printCopy.size() " << printCopy.size() << std::endl;
-	
+
 	//update position to enable scroll effect
 	for (int b = 0; b < printRef.size(); b++)
 	{
@@ -584,7 +586,7 @@ void CallOnce()
 			printCopy[a].pos.x = printRef[a].pos.x;
 			printCopy[a].pos.y = printRef[a].pos.y;
 		}
-		
+
 		DrawPrint(printRef[b].pos, printRef[b].text);
 	}
 }
@@ -593,20 +595,20 @@ void Run()
 {
 	bool quit = true;
 	//while (quit) {
-		BeginDrawing();
-			ClearBackground(BLACK);
-			// Test
-			//DrawSprite({a++, 0}); 
-			DrawTrailModeWatermark();
-			CallOnce();
-			a++;
-			std::string test_txt = "abc " + std::to_string(a);
-			DrawText(test_txt.c_str(), 200, 10, 12, WHITE);
-			DrawFPS(10, 10);	
-		EndDrawing();
-		quit = false;
+	BeginDrawing();
+	ClearBackground(BLACK);
+	// Test
+	//DrawSprite({a++, 0}); 
+	DrawTrailModeWatermark();
+	CallOnce();
+	/*a++;
+	std::string test_txt = "abc " + std::to_string(a);
+	DrawText(test_txt.c_str(), 200, 10, 12, WHITE);*/
+	//DrawFPS(10, 10);
+	EndDrawing();
+	quit = false;
 	//}
-	
+
 	// Always be sure to clean up 
 	//CloseWindow(); // Close window and OpenGL context
 }
@@ -614,7 +616,7 @@ void Run()
 void StartGDK()
 {
 	printf("DarkGDK Alpha 0.1\n");
-	Init();	
+	Init();
 	//Run();
 }
 

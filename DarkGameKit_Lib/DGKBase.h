@@ -55,6 +55,16 @@ struct textObj
 };
 extern std::vector<textObj> textRef;
 
+
+struct Sprite
+{
+	Texture2D texture2d;
+	Rectangle rect;
+	float frames_x;
+	float frames_y;
+};
+extern std::vector<Sprite> spriteRef;
+
 //private:
 void CallOnce();
 void InitFont();
