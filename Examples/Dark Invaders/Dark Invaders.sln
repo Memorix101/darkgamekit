@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dark Invaders", "Dark Invaders.vcxproj", "{EF933163-2DF6-422E-8BFD-72DEB99563AA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dark Invaders", "Dark Invaders.vcxproj", "{C77338DB-0FFA-4B79-B697-F20C97F791FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,12 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|x64.ActiveCfg = Debug|x64
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|x64.Build.0 = Debug|x64
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|x86.ActiveCfg = Debug|Win32
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|x86.Build.0 = Debug|Win32
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|x64.ActiveCfg = Release|x64
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|x64.Build.0 = Release|x64
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|x86.ActiveCfg = Release|Win32
-		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|x86.Build.0 = Release|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Debug|x64.ActiveCfg = Debug|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Debug|x86.ActiveCfg = Debug|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Debug|x86.Build.0 = Debug|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Release|x64.ActiveCfg = Release|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Release|x86.ActiveCfg = Release|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

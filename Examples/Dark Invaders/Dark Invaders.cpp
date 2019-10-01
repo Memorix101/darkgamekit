@@ -14,8 +14,6 @@
 #include "Sound.h"
 #include "Enemies.h"
 
-#pragma comment(lib, "DarkGameKit.lib")
-
 // these are the different modes throughout the game which can be set when the player starts, dies, clears a level etc. It will make the game flow from one phase to the next
 // much easier to manage
 enum  eMode { eGameSetup, eGameReset, eGameTitle, eGameWaitForFire, eGameLevel, eGameLevelWait, eGameLevelWait2, eGamePlay, eGameDie, eGameWin, eGameOver };
