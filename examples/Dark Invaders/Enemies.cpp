@@ -1,4 +1,4 @@
-#include "DarkSDK.h"
+#include <DarkGameKit.h>
 #include "Enemies.h"
 #include "Dark Invaders.h"
 #include "Player.h"
@@ -108,7 +108,7 @@ void enemiesSpawn ( void )
 	{
 		for ( int iX = 0; iX < 5 ; iX++ )
 		{
-			dbSetSpriteFrame ( iSprite , dbRnd ( 7 ) + 1 );
+			dbSetSpriteFrame ( iSprite , dbRND ( 7 ) + 1 );
 			dbSprite ( iSprite , iX*130 , iY*66 , 10 );
 			dbSetSpritePriority ( iSprite++ , 3 );
 			// set each enemy to "alive"
@@ -307,7 +307,7 @@ void enemiesFire ( void )
 		else
 		{
 			// if the bullet sprite doesnt exist, lets pick a random number and see if its time to shoot it
-			int iRnd = dbRnd ( 60 );
+			int iRnd = dbRND ( 60 );
 			if ( iRnd == 0 )
 				// lets add it
 				enemyAddBullet( iBulletSprite );
@@ -323,7 +323,7 @@ void enemiesFire ( void )
 void enemyAddBullet ( int iBulletSprite )
 {
 	// we need to pick a collumn
-	int iX = dbRnd ( 4 );
+	int iX = dbRND ( 4 );
 	
 	// then work from the bottom up, the lowest enemy on that collum will be the none that fires, if none are alive in that collumn then no bullet will be added
 	for ( int iY = 4 ; iY > -1 ; iY-- )
@@ -422,7 +422,7 @@ void enemiesSaucer ( void )
 	// it will only show up if it is not currently visible, and isnt in the process of blowing up
 	if ( g_iEnemiesY > 64 && dbSpriteVisible ( 60 ) == 0 && dbSpriteExist ( 61 ) == 0 )
 	{
-		if ( dbRnd(800) == 0 )
+		if ( dbRND(800) == 0 )
 		{
 			// time to show and move the saucer
 			dbSprite ( 60 , 1024 , 0 , 60 );

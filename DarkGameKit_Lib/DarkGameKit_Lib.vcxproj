@@ -93,6 +93,7 @@
     <ClInclude Include="DGKCore.h" />
     <ClInclude Include="DGKDisplay.h" />
     <ClInclude Include="DGKImage.h" />
+    <ClInclude Include="DGKInput.h" />
     <ClInclude Include="DGKMusic.h" />
     <ClInclude Include="DGKSound.h" />
     <ClInclude Include="DGKSprite.h" />
@@ -104,6 +105,7 @@
     <ClCompile Include="DGKCore.cpp" />
     <ClCompile Include="DGKDisplay.cpp" />
     <ClCompile Include="DGKImage.cpp" />
+    <ClCompile Include="DGKInput.cpp" />
     <ClCompile Include="DGKMusic.cpp" />
     <ClCompile Include="DGKSound.cpp" />
     <ClCompile Include="DGKSprite.cpp" />

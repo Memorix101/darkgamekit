@@ -10,6 +10,24 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="backdrop.cpp" />
+    <ClCompile Include="Dark Invaders.cpp" />
+    <ClCompile Include="Enemies.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Invader Text.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Sound.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="backdrop.h" />
+    <ClInclude Include="Dark Invaders.h" />
+    <ClInclude Include="Enemies.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Invader Text.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Sound.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{C77338DB-0FFA-4B79-B697-F20C97F791FA}</ProjectGuid>
@@ -87,24 +105,6 @@
       <AdditionalLibraryDirectories>../../lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\backdrop.cpp" />
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Enemies.cpp" />
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Input.cpp" />
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Invader Text.cpp" />
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp" />
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.cpp" />
-    <ClCompile Include="Dark Invaders.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\backdrop.h" />
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Dark Invaders.h" />
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Enemies.h" />
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Input.h" />
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Invader Text.h" />
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.h" />
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

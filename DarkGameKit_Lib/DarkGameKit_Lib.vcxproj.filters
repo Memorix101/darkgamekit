@@ -22,6 +22,9 @@
     <Filter Include="Image">
       <UniqueIdentifier>{748ec2b9-f21b-4cd2-a3c7-953cdb8e63ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{cf9eb568-2d92-4ac8-bdd3-bfbb8d101ac8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DarkGameKit.h" />
@@ -48,6 +51,9 @@
     <ClInclude Include="DGKImage.h">
       <Filter>Image</Filter>
     </ClInclude>
+    <ClInclude Include="DGKInput.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DGKCore.cpp">
@@ -71,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="DGKImage.cpp">
       <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="DGKInput.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -170,7 +170,7 @@ void dbSetSoundSpeed(int iSound, int iFrequency) {
 			if (soundRef[i].id == iSound)
 			{
 				soundRef[i].pitch = _pitch;
-				std::cout << "pitch " << _pitch << std::endl;
+				//std::cout << "pitch " << _pitch << std::endl;
 				SetSoundPitch(soundRef[i].sound, soundRef[i].pitch);
 			}
 			else

@@ -1,4 +1,4 @@
-#include "DarkSDK.h"
+#include <DarkGameKit.h>
 #include "backdrop.h"
 
 // variables to store how much the backdrops have scrolled

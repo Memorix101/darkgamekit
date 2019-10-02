@@ -1,4 +1,4 @@
-#include "DarkSDK.h"
+#include <DarkGameKit.h>
 #include "Input.h"
 
 // check the keys we have assigned to be the fire key

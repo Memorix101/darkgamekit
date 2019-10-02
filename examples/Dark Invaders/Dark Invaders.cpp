@@ -106,7 +106,7 @@ void gameSetup(void)
 	// lets run at a nice 60 frames per second - automatically!
 	dbSyncRate(60);
 	// full screen windowed mode
-	dbMaximizeWindow();
+	//dbMaximizeWindow();
 
 	// set up our text drawing routine
 	invaderTextSetup();

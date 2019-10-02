@@ -1,4 +1,4 @@
-#include "DarkSDK.h"
+#include <DarkGameKit.h>
 
 // load all our sounds in
 void soundSetup ( void )

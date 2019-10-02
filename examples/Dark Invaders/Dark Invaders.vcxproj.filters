@@ -15,48 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="backdrop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Dark Invaders.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Enemies.cpp">
+    <ClCompile Include="Enemies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Input.cpp">
+    <ClCompile Include="Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Invader Text.cpp">
+    <ClCompile Include="Invader Text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\backdrop.cpp">
+    <ClCompile Include="Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Enemies.h">
+    <ClInclude Include="backdrop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Input.h">
+    <ClInclude Include="Dark Invaders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Invader Text.h">
+    <ClInclude Include="Enemies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Player.h">
+    <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Sound.h">
+    <ClInclude Include="Invader Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\backdrop.h">
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\memor\Desktop\Tutorials\Dark Invaders\Dark Invaders\Dark Invaders.h">
+    <ClInclude Include="Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

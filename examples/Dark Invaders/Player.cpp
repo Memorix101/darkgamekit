@@ -1,4 +1,4 @@
-#include "DarkSDK.h"
+#include <DarkGameKit.h>
 #include "Player.h"
 #include "Input.h"
 #include "Enemies.h"
@@ -349,7 +349,7 @@ void playerUpdateScore ( void )
 	// first clear up any text shown
 	invaderTextClear();
 	char czScore[20];
-	sprintf ( czScore , "%d" , g_iPlayerScore );
+	sprintf_s ( czScore , "%d" , g_iPlayerScore );
 	// display the score
 	InvaderText ( 0 , 730 , 32 , czScore , false , false );
 }
