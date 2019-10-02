@@ -1,12 +1,16 @@
 #include "DGKBase.h"
 
+std::vector<DGKSprite> spriteRef;
+std::vector<DGKSound> soundRef;
+std::vector<DGKImage> imageRef;
 std::vector<DGKPrint>  printRef;
-std::vector<DGKPrint>  printCopy;
+std::vector<DGKMusic> musicRef;
+//std::vector<DGKPrint>  printCopy;
 std::vector<DGKText> textRef;
 bool printOnce = false;
-float a = 10;
 
-std::vector<DGKSprite> spriteRef;
+// Test
+float a = 10;
 
 int fontHeight = 0;
 int fontWidth = 0;
@@ -525,6 +529,7 @@ void SetSystemFont()
 void Init()
 {
 	InitWindow(window_width, window_height, window_title.c_str());
+	InitAudioDevice();
 	SetIcon();
 	//SetTargetFPS(60);
 	//InitFont();
@@ -543,15 +548,15 @@ void CallOnce()
 {
 	for (static bool first = true; first; first = false) {
 		//DarkGDK();
-		printCopy = printRef;
+		//printCopy = printRef;
 		std::cout << "printSize: " << printRef.size() << std::endl;
 	}
 
-	for (int i = 0; i < printCopy.size(); i++)
+	/*for (int i = 0; i < printCopy.size(); i++)
 	{
 		//printRef.insert(printRef.begin(), printCopy.begin(), printCopy.end());
 		printRef[i] = printCopy[i];
-	}
+	}*/
 
 	//display all text objects
 	for (auto ref : textRef)
@@ -581,13 +586,29 @@ void CallOnce()
 		}
 
 		//update printCopy
-		for (int a = 0; a < printCopy.size(); a++)
+		/*for (int a = 0; a < printCopy.size(); a++)
 		{
 			printCopy[a].pos.x = printRef[a].pos.x;
 			printCopy[a].pos.y = printRef[a].pos.y;
-		}
+		}*/
 
 		DrawPrint(printRef[b].pos, printRef[b].text);
+	}
+
+	// audio loop
+	for (int i = 0; i < soundRef.size(); i++) if (&soundRef[i])
+	{
+		if (soundRef[i].looping == true)
+		{
+			if (!IsSoundPlaying(soundRef[i].sound))
+			{
+				PlaySound(soundRef[i].sound);
+			}
+		}
+		else
+		{
+			//error
+		}
 	}
 }
 

@@ -3,6 +3,7 @@
 #include "DGKBase.h"
 #include "DGKCore.h"
 #include "DGKSprite.h"
+#include "DGKSound.h"
 #include "DGKDisplay.h"
 
 #pragma comment(lib, "DarkGameKit.lib")

@@ -42,17 +42,23 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 {
 	//get sprite id in vector
 	int sprite_id = 0;
-
-	for (int i = 0; i < spriteRef.size(); i++)
+	if (dbSpriteExist(iSprite) == 1)
 	{
-		if (spriteRef[i].id == iSprite)
+		for (int i = 0; i < spriteRef.size(); i++)
 		{
-			sprite_id = i;
+			if (spriteRef[i].id == iSprite)
+			{
+				sprite_id = i;
+			}
+			else
+			{
+				//error
+			}
 		}
-		else
-		{
-			//error
-		}
+	}
+	else
+	{
+		//error
 	}
 
 	framesCounter++;
@@ -105,17 +111,18 @@ void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV) {}
 
 int dbSpriteExist(int iSprite)
 {
+	int id = 0;
 	for (int i = 0; i < spriteRef.size(); i++)
 	{
-		if (spriteRef[i].id == iSprite)
+		if (spriteRef[i].id == id)
 		{
-			return 1;
+			id = 1;
 		}
-		else
-		{
-			return  0;
-		}
+
+		if(id == 1)
+			break;
 	}
+	return id;
 }
 
 int dbSpriteX(int iSprite)

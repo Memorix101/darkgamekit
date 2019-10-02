@@ -45,7 +45,7 @@ struct DGKPrint
 };
 extern bool printOnce;
 extern std::vector<DGKPrint> printRef;
-extern std::vector<DGKPrint> printCopy;
+//extern std::vector<DGKPrint> printCopy;
 
 struct DGKText
 {
@@ -68,9 +68,27 @@ extern std::vector<DGKSprite> spriteRef;
 struct DGKSound
 {
 	int id;
+	bool looping;
 	float volume;
+	Sound sound;
 };
-extern std::vector<Sound> soundRef;
+extern std::vector<DGKSound> soundRef;
+
+struct DGKImage
+{
+	int id;
+	Image image;
+};
+extern std::vector<DGKImage> imageRef;
+
+struct DGKMusic
+{
+	int id;
+	bool looping;
+	float volume;
+	Music music;
+};
+extern std::vector<DGKMusic> musicRef;
 
 //private:
 void CallOnce();
