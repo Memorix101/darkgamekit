@@ -49,14 +49,16 @@ struct DGKSprite
 {
 	int id;
 	int image_id;
-	int layer; //priority 
-	bool visible;
+	int layer = 0; //priority 
+	bool visible = true;
+	bool animated = false;
 	Texture2D texture2d;
-	Rectangle rect;
+	Rectangle rect; //animation
+	Vector2 pos = {0, 0};
 	float frames_x;
 	float frames_y;
-	int currentFrame;
-	int currentFrameTmp;
+	int currentFrame = 0;
+	int currentFrameTmp = 0;
 };
 extern std::vector<DGKSprite> spriteRef;
 

@@ -33,6 +33,8 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 				{
 					sprite_id = i;
 					_sprite_exists = true;
+					spriteRef[i].pos.x = iX;
+					spriteRef[i].pos.y = iY;
 					//UnloadTexture(spriteRef[sprite_id].texture2d);
 				}
 
@@ -44,20 +46,18 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 		{
 			_sprite.id = iSprite;
 			_sprite.image_id = iImage;
-			_sprite.layer = 0;
-			_sprite.currentFrame = 0;
-			_sprite.currentFrameTmp = 0;
-			_sprite.visible = true;
+			_sprite.pos.x = iX;
+			_sprite.pos.y = iY;
 			_sprite_exists = true;
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
 			spriteRef.push_back(_sprite);
 		}
 
 		//std::cout << spriteRef.size() << std::endl;
-		if (spriteRef[sprite_id].visible == true && _sprite_exists == true)
+		/*if (spriteRef[sprite_id].visible == true && _sprite_exists == true)
 		{
 			DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
-		}
+		}*/
 	}
 	else
 	{
@@ -172,6 +172,7 @@ void dbSizeSprite(int iSprite, int iX, int iY)
 		{
 			Image _image = GetTextureData(spriteRef[i].texture2d);
 			ImageResize(&_image, iX, iY);
+			UnloadTexture(spriteRef[i].texture2d);
 			spriteRef[i].texture2d = LoadTextureFromImage(_image);
 		}
 	}
@@ -181,7 +182,22 @@ void dbStretchSprite(int iSprite, int iX, int iY) {}
 void dbRotateSprite(int iSprite, float fAngle) {}
 void dbFlipSprite(int iSprite) {}
 void dbMirrorSprite(int iSprite) {}
-void dbPasteSprite(int iSprite, int iX, int iY) {}
+
+void dbPasteSprite(int iSprite, int iX, int iY)
+{
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				spriteRef[i].pos.x = iX;
+				spriteRef[i].pos.y = iY;
+				break;
+			}
+		}
+	}
+}
 
 void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, int iDown, int iImage)
 {
@@ -193,10 +209,7 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	DGKSprite _sprite;
 	_sprite.id = iSprite;
 	//_sprite.image_id = iImage;
-	_sprite.layer = 0;
-	_sprite.currentFrame = 0;
-	_sprite.currentFrameTmp = 0;
-	_sprite.visible = true;
+	_sprite.animated = true;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
 	_sprite.frames_x = iAcross;
@@ -276,10 +289,10 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		//std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame  << " currentFrameTmp " << spriteRef[sprite_id].currentFrameTmp << " X " << spriteRef[iSprite - 1].rect.x << " Y " << spriteRef[iSprite - 1].rect.y << std::endl;
 	}
 
-	if (spriteRef[sprite_id].visible == true)
+	/*if (spriteRef[sprite_id].visible == true)
 	{
 		DrawTextureRec(spriteRef[sprite_id].texture2d, spriteRef[sprite_id].rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
-	}
+	}*/
 }
 
 void dbSetSpriteFrame(int iSprite, int iFrame) {}
@@ -323,11 +336,14 @@ void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV)
 		Rectangle _rect = spriteRef[sprite_id].rect;
 		_rect.width = spriteRef[sprite_id].rect.width * fU;
 		_rect.height = spriteRef[sprite_id].rect.height * fV;
+		spriteRef[sprite_id].rect = _rect;
 
+		/*
 		if (spriteRef[sprite_id].visible == true)
 		{
 			DrawTextureRec(spriteRef[sprite_id].texture2d, _rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
 		}
+		*/
 	}
 }
 
@@ -443,11 +459,15 @@ int dbSpriteFrame(int iSprite)
 		{
 			if (spriteRef[i].id == iSprite)
 			{
-				frame = spriteRef[i].currentFrame;
-
-				if (frame == 0)
+				if (spriteRef[i].animated == true)
 				{
-					frame = 1;
+					frame = spriteRef[i].currentFrame;
+
+					if (frame == 0)
+					{
+						frame = 1;
+					}
+					break;
 				}
 
 				break;

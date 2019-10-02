@@ -610,6 +610,19 @@ void CallOnce()
 			//error
 		}
 	}
+
+	//draw loop
+	for (auto sprite : spriteRef)
+	{
+		if (sprite.animated == false && sprite.visible == true)
+		{
+			DrawTexture(sprite.texture2d, sprite.pos.x, sprite.pos.y, WHITE);
+		}
+		else if (sprite.animated == true && sprite.visible == true)
+		{
+			DrawTextureRec(sprite.texture2d, sprite.rect, sprite.pos, WHITE);  // Draw part of the texture
+		}
+	}
 }
 
 void Run()
