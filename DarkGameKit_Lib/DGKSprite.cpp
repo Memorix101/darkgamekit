@@ -4,7 +4,6 @@
 #include "DGKImage.h"
 
 int framesCounter = 0;
-int currentFrame = 0;
 int framesSpeed = 8; // Number of spritesheet frames shown by second
 
 void dbSprite(int iSprite, int iX, int iY, int iImage)
@@ -46,6 +45,8 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 			_sprite.id = iSprite;
 			_sprite.image_id = iImage;
 			_sprite.layer = 0;
+			_sprite.currentFrame = 0;
+			_sprite.currentFrameTmp = 0;
 			_sprite.visible = true;
 			_sprite_exists = true;
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
@@ -179,6 +180,8 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	_sprite.id = iSprite;
 	//_sprite.image_id = iImage;
 	_sprite.layer = 0;
+	_sprite.currentFrame = 0;
+	_sprite.currentFrameTmp = 0;
 	_sprite.visible = true;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
@@ -230,22 +233,33 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 	if (framesCounter >= (60 / framesSpeed))
 	{
 		framesCounter = 0;
-		currentFrame++;
+		spriteRef[sprite_id].currentFrameTmp++;
+		spriteRef[sprite_id].currentFrame++;
 		//std::cout << "currentFrame " << std::endl;
 
-		if (currentFrame > spriteRef[sprite_id].frames_x)
+		if (spriteRef[sprite_id].currentFrameTmp > spriteRef[sprite_id].frames_x)
 		{
-			currentFrame = 0;
+			spriteRef[sprite_id].currentFrameTmp = 1;
 			spriteRef[sprite_id].rect.y += spriteRef[sprite_id].rect.height;;
 		}
 
 		if (spriteRef[sprite_id].rect.y > spriteRef[sprite_id].texture2d.height)
 		{
 			spriteRef[sprite_id].rect.y = 0; // reset
+			spriteRef[sprite_id].currentFrame = 1; // reset
 		}
 
-		spriteRef[sprite_id].rect.x = (float)currentFrame * spriteRef[sprite_id].rect.width;
-		//std::cout << "currentFrame " << currentFrame << " X " << spriteRef[iSprite - 1].rect.x << " Y " << spriteRef[iSprite - 1].rect.y << std::endl;
+		if(spriteRef[sprite_id].currentFrame > iEnd)
+		{
+			// reset
+			spriteRef[sprite_id].currentFrameTmp = 1;
+			spriteRef[sprite_id].rect.y = 0;
+			spriteRef[sprite_id].rect.x = 0;
+			spriteRef[sprite_id].currentFrame = 1;
+		}
+		
+		spriteRef[sprite_id].rect.x = (float)spriteRef[sprite_id].currentFrameTmp * spriteRef[sprite_id].rect.width;
+		//std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame  << " currentFrameTmp " << spriteRef[sprite_id].currentFrameTmp << " X " << spriteRef[iSprite - 1].rect.x << " Y " << spriteRef[iSprite - 1].rect.y << std::endl;
 	}
 
 	if (spriteRef[sprite_id].visible == true)
@@ -388,7 +402,30 @@ float dbSpriteAngle(int iSprite)
 
 int dbSpriteFrame(int iSprite)
 {
-	return NULL;
+	int frame = 0;
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				frame = spriteRef[i].currentFrame;
+
+				if(frame == 0)
+				{
+					frame = 1;
+				}
+				
+				break;
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+
+	return frame;
 }
 
 int dbSpriteAlpha(int iSprite)

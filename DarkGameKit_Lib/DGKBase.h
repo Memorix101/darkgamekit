@@ -65,6 +65,8 @@ struct DGKSprite
 	Rectangle rect;
 	float frames_x;
 	float frames_y;
+	int currentFrame;
+	int currentFrameTmp;
 };
 extern std::vector<DGKSprite> spriteRef;
 
