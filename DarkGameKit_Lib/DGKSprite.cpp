@@ -35,6 +35,7 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 					_sprite_exists = true;
 					spriteRef[i].pos.x = iX;
 					spriteRef[i].pos.y = iY;
+					spriteRef[i].visible = true;
 					//UnloadTexture(spriteRef[sprite_id].texture2d);
 				}
 
@@ -49,6 +50,7 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 			_sprite.pos.x = iX;
 			_sprite.pos.y = iY;
 			_sprite_exists = true;
+			_sprite.visible = true;
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
 			spriteRef.push_back(_sprite);
 		}
@@ -101,6 +103,7 @@ void dbCloneSprite(int iSprite, int iDestination)
 				{
 					_copy = spriteRef[i];
 					_copy.id = iDestination;
+					_copy.visible = false;
 					spriteRef.push_back(_copy);
 					break;
 				}
@@ -193,6 +196,7 @@ void dbPasteSprite(int iSprite, int iX, int iY)
 			{
 				spriteRef[i].pos.x = iX;
 				spriteRef[i].pos.y = iY;
+				spriteRef[i].visible = true;
 				break;
 			}
 		}

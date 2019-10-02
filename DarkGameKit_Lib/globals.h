@@ -50,7 +50,7 @@ struct DGKSprite
 	int id;
 	int image_id;
 	int layer = 0; //priority 
-	bool visible = true;
+	bool visible = false;
 	bool animated = false;
 	Texture2D texture2d;
 	Rectangle rect; //animation
