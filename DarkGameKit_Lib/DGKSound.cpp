@@ -7,6 +7,7 @@ void dbLoadSound(const char* szFilename, int iSound)
 	_sound.id = iSound;
 	_sound.looping = false;
 	_sound.volume = 1.0f;
+	_sound.pitch = 1.0f;
 	_sound.sound = LoadSound(szFilename);
 	soundRef.push_back(_sound);
 }
@@ -155,7 +156,35 @@ void dbPositionSound(int iSound, float fX, float fY, float fZ) { }
 void dbRecordSound(int iSound) { }
 void dbStopRecordingSound(void) { }
 void dbSetSoundPan(int iSound, int iPan) { }
-void dbSetSoundSpeed(int iSound, int iFrequency) { }
+
+void dbSetSoundSpeed(int iSound, int iFrequency) {
+	if (dbSoundExist(iSound) == 1)
+	{
+		float _pitch = iFrequency * 0.000125f;
+
+		if (_pitch <= 0)
+			_pitch = 1;
+
+		for (int i = 0; i < soundRef.size(); i++)
+		{
+			if (soundRef[i].id == iSound)
+			{
+				soundRef[i].pitch = _pitch;
+				std::cout << "pitch " << _pitch << std::endl;
+				SetSoundPitch(soundRef[i].sound, soundRef[i].pitch);
+			}
+			else
+			{
+				//error
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+}
+
 void dbSetSoundVolume(int iSound, int iVolume) { }
 void dbPositionListener(float fX, float fY, float fZ) { }
 void dbRotateListener(float fX, float fY, float fZ) { }

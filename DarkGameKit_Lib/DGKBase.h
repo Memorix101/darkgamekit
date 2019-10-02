@@ -70,6 +70,7 @@ struct DGKSound
 	int id;
 	bool looping;
 	float volume;
+	float pitch;
 	Sound sound;
 };
 extern std::vector<DGKSound> soundRef;

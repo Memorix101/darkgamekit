@@ -2,6 +2,7 @@
 
 #include "DGKBase.h"
 #include "DGKCore.h"
+#include "DGKImage.h"
 #include "DGKSprite.h"
 #include "DGKSound.h"
 #include "DGKDisplay.h"

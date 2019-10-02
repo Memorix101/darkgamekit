@@ -1,12 +1,60 @@
 
 #include <cstddef>
 #include "DGKSprite.h"
+#include "DGKImage.h"
 
 int framesCounter = 0;
 int currentFrame = 0;
 int framesSpeed = 8; // Number of spritesheet frames shown by second
 
-void dbSprite(int iSprite, int iX, int iY, int iImage) {}
+void dbSprite(int iSprite, int iX, int iY, int iImage)
+{
+	//get sprite id in vector
+	int image_id = 0;
+	int sprite_id = 0;
+	DGKSprite _sprite;
+
+	if (dbImageExist(iImage) == 1)
+	{
+		for (int i = 0; i < imageRef.size(); i++)
+		{
+			if (imageRef[i].id == iImage)
+			{
+				image_id = i;
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iImage)
+			{
+				sprite_id = i;
+				UnloadTexture(spriteRef[sprite_id].texture2d);
+			}
+
+			if (sprite_id != 0)
+				break;
+		}
+	}
+	else
+	{
+		_sprite.id = iSprite;
+		_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
+		spriteRef.push_back(_sprite);
+	}
+
+	//std::cout << spriteRef.size() << std::endl;
+	
+	DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
+}
+
 void dbSetSprite(int iSprite, int iBackSave, int iTransparency) {}
 void dbDeleteSprite(int iSprite) {}
 void dbCloneSprite(int iSprite, int iDestination) {}
@@ -114,12 +162,12 @@ int dbSpriteExist(int iSprite)
 	int id = 0;
 	for (int i = 0; i < spriteRef.size(); i++)
 	{
-		if (spriteRef[i].id == id)
+		if (spriteRef[i].id == iSprite)
 		{
 			id = 1;
 		}
 
-		if(id == 1)
+		if (id == 1)
 			break;
 	}
 	return id;
