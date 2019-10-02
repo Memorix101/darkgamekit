@@ -9,7 +9,7 @@ void dbSetGamma ( int iRed, int iGreen, int iBlue );
 
 void dbShowWindow ( void );
 void dbHideWindow ( void );
-void dbMaximizeWindow ( void );
+void dbMaximizeWindow  ( void );
 void dbMinimizeWindow ( void );
 void dbRestoreWindow ( void );
 void dbSetWindowOn ( void );
