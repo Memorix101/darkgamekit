@@ -14,6 +14,8 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 	int sprite_id = 0;
 	DGKSprite _sprite;
 
+	bool _sprite_exists = false;
+
 	if (dbImageExist(iImage) == 1) //only assign and draw if image exists
 	{
 		for (int i = 0; i < imageRef.size(); i++)
@@ -28,10 +30,11 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 		{
 			for (int i = 0; i < spriteRef.size(); i++)
 			{
-				if (spriteRef[i].id == iImage)
+				if (spriteRef[i].id == iSprite)
 				{
 					sprite_id = i;
-					UnloadTexture(spriteRef[sprite_id].texture2d);
+					_sprite_exists = true;
+					//UnloadTexture(spriteRef[sprite_id].texture2d);
 				}
 
 				if (sprite_id != 0)
@@ -43,12 +46,13 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 			_sprite.id = iSprite;
 			_sprite.image_id = iImage;
 			_sprite.visible = true;
+			_sprite_exists = true;
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
 			spriteRef.push_back(_sprite);
 		}
 
 		//std::cout << spriteRef.size() << std::endl;
-		if (spriteRef[sprite_id].visible == true)
+		if (spriteRef[sprite_id].visible == true && _sprite_exists == true)
 		{
 			DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
 		}
@@ -63,7 +67,31 @@ void dbSetSprite(int iSprite, int iBackSave, int iTransparency) {}
 
 void dbDeleteSprite(int iSprite) {}
 
-void dbCloneSprite(int iSprite, int iDestination) {}
+void dbCloneSprite(int iSprite, int iDestination)
+{
+	DGKSprite _copy;
+
+	if (dbSpriteExist(iDestination) == 0) //check if destination is not already used
+	{
+		if (dbSpriteExist(iSprite) == 1)
+		{
+			for (int i = 0; i < spriteRef.size(); i++)
+			{
+				if (spriteRef[i].id == iSprite)
+				{
+					_copy = spriteRef[i];
+					_copy.id = iDestination;
+					spriteRef.push_back(_copy);
+					break;
+				}
+			}
+		}
+	}
+	else
+	{
+		std::cout << "ERROR: Sprite destination ID " << iDestination << " already used" << std::endl;
+	}
+}
 
 void dbShowSprite(int iSprite)
 {
@@ -350,7 +378,7 @@ int dbSpriteVisible(int iSprite)
 		{
 			if (spriteRef[i].id == iSprite)
 			{
-				if(spriteRef[i].visible == true)
+				if (spriteRef[i].visible == true)
 				{
 					visible = 1;
 				}
