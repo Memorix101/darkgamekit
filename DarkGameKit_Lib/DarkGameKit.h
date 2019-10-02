@@ -8,6 +8,7 @@
 #include "DGKDisplay.h"
 #include "DGKInput.h"
 
+#ifdef  _WIN32
 #pragma comment(lib, "DarkGameKit.lib")
 #pragma comment(lib, "kernel32.lib")
 #pragma comment(lib, "user32.lib")
@@ -15,3 +16,4 @@
 #pragma comment(lib, "openGL32.lib")
 #pragma comment(lib, "winmm.lib")
 #pragma comment(lib, "raylib_static.lib")
+#endif

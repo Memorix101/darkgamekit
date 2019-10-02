@@ -12,6 +12,7 @@ dbSpriteFrame ✔
 dbSpriteVisible ✔
 dbShowSprite ✔
 dbSetSpriteTextureCoord
+dbSizeSprite
 
 ##### DBPRo behaviour
 

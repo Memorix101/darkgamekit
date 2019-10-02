@@ -162,7 +162,21 @@ void dbShowAllSprites(void) {}
 void dbMoveSprite(int iNUmber, float fVelocity) {}
 void dbOffsetSprite(int iSprite, int iX, int iY) {}
 void dbScaleSprite(int iSprite, int iScale) {}
-void dbSizeSprite(int iSprite, int iX, int iY) {}
+
+void dbSizeSprite(int iSprite, int iX, int iY)
+{
+	int sprite_id = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			Image _image = GetTextureData(spriteRef[i].texture2d);
+			ImageResize(&_image, iX, iY);
+			spriteRef[i].texture2d = LoadTextureFromImage(_image);
+		}
+	}
+}
+
 void dbStretchSprite(int iSprite, int iX, int iY) {}
 void dbRotateSprite(int iSprite, float fAngle) {}
 void dbFlipSprite(int iSprite) {}
@@ -249,7 +263,7 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 			spriteRef[sprite_id].currentFrame = 1; // reset
 		}
 
-		if(spriteRef[sprite_id].currentFrame > iEnd)
+		if (spriteRef[sprite_id].currentFrame > iEnd)
 		{
 			// reset
 			spriteRef[sprite_id].currentFrameTmp = 1;
@@ -257,7 +271,7 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 			spriteRef[sprite_id].rect.x = 0;
 			spriteRef[sprite_id].currentFrame = 1;
 		}
-		
+
 		spriteRef[sprite_id].rect.x = (float)spriteRef[sprite_id].currentFrameTmp * spriteRef[sprite_id].rect.width;
 		//std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame  << " currentFrameTmp " << spriteRef[sprite_id].currentFrameTmp << " X " << spriteRef[iSprite - 1].rect.x << " Y " << spriteRef[iSprite - 1].rect.y << std::endl;
 	}
@@ -272,7 +286,7 @@ void dbSetSpriteFrame(int iSprite, int iFrame) {}
 
 void dbSetSpritePriority(int iSprite, int iPriority)
 {
-		if (dbSpriteExist(iSprite) == 1)
+	if (dbSpriteExist(iSprite) == 1)
 	{
 		for (int i = 0; i < spriteRef.size(); i++)
 		{
@@ -295,7 +309,27 @@ void dbSetSpritePriority(int iSprite, int iPriority)
 void dbSetSpriteImage(int iSprite, int iImage) {}
 void dbSetSpriteAlpha(int iSprite, int iAlpha) {}
 void dbSetSpriteDiffuse(int iSprite, int iRed, int iGreen, int iBlue) {}
-void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV) {}
+
+void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV)
+{
+	int sprite_id = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			sprite_id = i;
+		}
+
+		Rectangle _rect = spriteRef[sprite_id].rect;
+		_rect.width = spriteRef[sprite_id].rect.width * fU;
+		_rect.height = spriteRef[sprite_id].rect.height * fV;
+
+		if (spriteRef[sprite_id].visible == true)
+		{
+			DrawTextureRec(spriteRef[sprite_id].texture2d, _rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
+		}
+	}
+}
 
 int dbSpriteExist(int iSprite)
 {
@@ -411,11 +445,11 @@ int dbSpriteFrame(int iSprite)
 			{
 				frame = spriteRef[i].currentFrame;
 
-				if(frame == 0)
+				if (frame == 0)
 				{
 					frame = 1;
 				}
-				
+
 				break;
 			}
 		}
