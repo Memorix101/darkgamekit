@@ -1,0 +1,20 @@
+# TODO
+
+dbDeleteImage
+
+dbSpriteImage
+dbCloneSprite
+dbHideSprite
+dbDeleteSprite
+dbSetSpriteFrame
+dbSetSpritePriority
+dbSpriteFrame
+dbSpriteVisible
+dbShowSprite
+
+##### DBPRo behaviour
+
+Tested with DBPro v1.0.7
+
+print command text behind image
+draw textures outside while loop
