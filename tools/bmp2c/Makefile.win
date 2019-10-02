@@ -1,0 +1,51 @@
+# Project: bmp2c
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = bmp2c_private.res
+OBJ  = bmp2c.o ../../_desktop_dev_common_files/error_msg.o ../../_desktop_dev_common_files/numconv_stringstream.o ../../_desktop_dev_common_files/string_ext.o ../../_desktop_dev_common_files/archive.o ../../_desktop_dev_common_files/bmp_ffi.o ../../_desktop_dev_common_files/win32ext.o $(RES)
+LINKOBJ  = bmp2c.o ../../_desktop_dev_common_files/error_msg.o ../../_desktop_dev_common_files/numconv_stringstream.o ../../_desktop_dev_common_files/string_ext.o ../../_desktop_dev_common_files/archive.o ../../_desktop_dev_common_files/bmp_ffi.o ../../_desktop_dev_common_files/win32ext.o $(RES)
+LIBS =  -L"C:/MinGW/lib" ../../../../../../MinGW/lib/libcomdlg32.a  
+INCS =  -I"C:/MinGW/include" 
+CXXINCS =  -I"C:/MinGW/include"  -I"C:/MinGW/include/c++/3.4.2"  -I"C:/MinGW/include/c++/3.4.2/mingw32"  -I"C:/MinGW/include/c++/3.4.2/backward"  -I"C:/MinGW/lib/gcc/mingw32/3.4.2/include"  -I"C:/_Data/Dev/versioned/desktop_dev/_desktop_dev_common_files"  -I"C:/_Data/Dev/versioned/_common_files" 
+BIN  = bmp2c.exe
+CXXFLAGS = $(CXXINCS)   -fexceptions -O3
+CFLAGS = $(INCS)   -fexceptions -O3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before bmp2c.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "bmp2c.exe" $(LIBS)
+
+bmp2c.o: bmp2c.cpp
+	$(CPP) -c bmp2c.cpp -o bmp2c.o $(CXXFLAGS)
+
+../../_desktop_dev_common_files/error_msg.o: ../../_desktop_dev_common_files/error_msg.cpp
+	$(CPP) -c ../../_desktop_dev_common_files/error_msg.cpp -o ../../_desktop_dev_common_files/error_msg.o $(CXXFLAGS)
+
+../../_desktop_dev_common_files/numconv_stringstream.o: ../../_desktop_dev_common_files/numconv_stringstream.cpp
+	$(CPP) -c ../../_desktop_dev_common_files/numconv_stringstream.cpp -o ../../_desktop_dev_common_files/numconv_stringstream.o $(CXXFLAGS)
+
+../../_desktop_dev_common_files/string_ext.o: ../../_desktop_dev_common_files/string_ext.cpp
+	$(CPP) -c ../../_desktop_dev_common_files/string_ext.cpp -o ../../_desktop_dev_common_files/string_ext.o $(CXXFLAGS)
+
+../../_desktop_dev_common_files/archive.o: ../../_desktop_dev_common_files/archive.cpp
+	$(CPP) -c ../../_desktop_dev_common_files/archive.cpp -o ../../_desktop_dev_common_files/archive.o $(CXXFLAGS)
+
+../../_desktop_dev_common_files/bmp_ffi.o: ../../_desktop_dev_common_files/bmp_ffi.cpp
+	$(CPP) -c ../../_desktop_dev_common_files/bmp_ffi.cpp -o ../../_desktop_dev_common_files/bmp_ffi.o $(CXXFLAGS)
+
+../../_desktop_dev_common_files/win32ext.o: ../../_desktop_dev_common_files/win32ext.cpp
+	$(CPP) -c ../../_desktop_dev_common_files/win32ext.cpp -o ../../_desktop_dev_common_files/win32ext.o $(CXXFLAGS)
+
+bmp2c_private.res: bmp2c_private.rc 
+	$(WINDRES) -i bmp2c_private.rc --input-format=rc -o bmp2c_private.res -O coff 

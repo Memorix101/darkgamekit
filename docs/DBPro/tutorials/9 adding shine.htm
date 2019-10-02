@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>DarkBASIC Professional Help File</title>
+</head>
+<body background="..\gfx\dbpro_bg.jpg">
+<!-- Page Header -->
+<center><table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><img src="..\gfx\dbph_head_1.jpg" width="102" height="51"></td>
+	<td><a href="..\main.htm"><img src="..\gfx\dbph_head_2.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\commands.htm"><img src="..\gfx\dbph_head_3.jpg" width="50" height="51" border="0"></a></td>
+	<td><a href="..\examples.htm"><img src="..\gfx\dbph_head_4.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\documents.htm"><img src="..\gfx\dbph_head_5.jpg" width="46" height="51" border="0"></a></td>
+	<td><a href="..\index.htm"><img src="..\gfx\dbph_head_6.jpg" width="56" height="51" border="0"></a></td>
+</tr>
+</table></center>
+<font face="Verdana">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<BR>
+<BR>
+<B><FONT SIZE=3><CENTER><FONT SIZE=3>TUTORIAL NINE<BR>
+Adding Shine<BR>
+</FONT></CENTER></FONT></B><BR>
+Shine is the fine layer of detail that turns a good game into a great game. Shine is why you like the latest model of car, stereo and washing machine. It’s the six coats of polish you pay for through the nose.<BR>
+<BR>
+</td></tr></table><CENTER>
+<IMG SRC=gfx\tutorial9.jpg><BR>
+</CENTER><br><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+<BR>
+We could add shine forever. For this tutorial we shall add just two coats of shine. Some statistical shine and particle bullet shine. For our stats, we shall inform the user how many aliens remain in the level, when the level is complete and how far away the player is to the nearest alien. The function below does all this:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT9A
+rem Distance to next alien
+if aliensleft>0 then text 20,screen height()-40,"DISTANCE READING:"+str$(abs(cdist#*100))
+
+rem Aliens Left Stat
+s$=str$(aliensleft)+" ALIENS LEFT"
+if aliensleft=0 then s$="LEVEL COMPLETE!" : stop sound EnemySnd
+text 640-20-text width(s$),screen height()-40,s$
+</FONT></PRE>To add our particle bullet shine, we simply have to create and control a particles object and use the position of the bullet object as our guide. There are three areas of code we must modify. The creation, control and destruction of the bullet.<BR>
+<BR>
+Bullet creation:<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT9B
+if particles exist(1)=1 then delete particles 1
+make particles 1, FireImg, 50, 0.5
+set particle emissions 1,10
+set particle speed 1,0.01
+</FONT></PRE>Bullet control:<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT9C
+rem Update particle using bullet object position
+set particle emissions 1,1+(bullet/10)
+rotate particles 1,90-object angle x(BulletObj),object angle y(BulletObj)+180,0
+position particles 1,object position x(BulletObj),object position y(BulletObj),object position z(BulletObj)
+</FONT></PRE>Bullet destruction:<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT9D
+set particle emissions 1,0
+</FONT></PRE><BR>
+CLICK <A HREF=..\main.htm>HERE</A> TO GO TO THE MAIN MENU<BR>
+<BR>
+<BR>
+</td></tr></table>
+<br>
+<!-- Page Footer -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center"><img src="..\gfx\dbph_foot_1.jpg" width="340" height="38"></td>
+</tr>
+</table>
+</body>
+</html>

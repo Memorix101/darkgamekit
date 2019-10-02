@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>DarkBASIC Professional Help File</title>
+</head>
+<body background="..\gfx\dbpro_bg.jpg">
+<!-- Page Header -->
+<center><table width="340" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td><img src="..\gfx\dbph_head_1.jpg" width="102" height="51"></td>
+	<td><a href="..\main.htm"><img src="..\gfx\dbph_head_2.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\commands.htm"><img src="..\gfx\dbph_head_3.jpg" width="50" height="51" border="0"></a></td>
+	<td><a href="..\examples.htm"><img src="..\gfx\dbph_head_4.jpg" width="47" height="51" border="0"></a></td>
+	<td><a href="..\documents.htm"><img src="..\gfx\dbph_head_5.jpg" width="46" height="51" border="0"></a></td>
+	<td><a href="..\index.htm"><img src="..\gfx\dbph_head_6.jpg" width="56" height="51" border="0"></a></td>
+</tr>
+</table></center>
+<font face="Verdana">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<BR>
+<BR>
+<B><FONT SIZE=3><CENTER><FONT SIZE=3>TUTORIAL EIGHT<BR>
+Adding Logic<BR>
+</FONT></CENTER></FONT></B><BR>
+Logic is the cornerstone of every game, no matter what kind of game it is. Logic is responsible for everything that happens in the game. In this sense, logic is the code to control when you kill an alien, when the alien kills you, when you win the game and when you lose the game. As this tutorial does not attempt to write a complete game, we will add the logic to restart when the player dies and the logic to move the aliens around the world and allow the player to shoot them.<BR>
+<BR>
+</td></tr></table><CENTER>
+<IMG SRC=gfx\tutorial8.jpg><BR>
+</CENTER><br><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+<BR>
+We can give our aliens the appearance of intelligence by letting them move towards the player when they are looking in the right direction, and the player is close enough:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT8A
+rem If enemy "facing player" and "on similar height" and "close", zoom in
+if abs(viewa#-obja#)<10.0 and abs(dy#)<5.0 and dist#<30.0
+ if object angle z(ene)<>2 then play sound EnemygunSnd
+ rotate object ene,0,viewa#,2
+ set object speed ene,2
+else
+ set object speed ene,1
+endif
+</FONT></PRE>When the player gets too close to the enemy, the player must die. As we wish the game to continue, we shall reset the players position and in order to avoid the enemy constantly attacking the player, we remove the alien from the game:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT8B
+rem If enemy gets too close to player, player dies
+if dist#<2.0
+ play sound DieSnd
+ for x=0 to 100
+  point camera object position x(ene), object position y(ene)+(x/20.0), object position z(ene)
+  sync
+ next x
+ restart=1
+ killenemy=1
+endif
+</FONT></PRE>When the bullet gets too close to an enemy, both the enemy and the bullet die. The bullet will of course live again when the player fires the gun, but the enemy alas will not be so fortunate this game:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT8C
+rem If enemy and bullet in same space, enemy dies
+if bullet>0
+ if object collision(BulletObj,ene)>0
+  play sound EnemydieSnd
+  play object ene,26,26+50
+  set object speed ene,1
+  bulletimpact=1
+ endif
+endif
+</FONT></PRE>Having all the enemies in front of you does not make for a very good game, so adding logic to space them out and give them collision so they don"t move through walls provides good enemy logic for the game:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT8D
+rem Place enemies throughout world and set BSP collision for them
+aliensleft=0
+restore EnemyPosData
+for ene=EneObj to EneObj+4
+ read ex#,ey#,ez#
+ position object ene,ex#,ey#,ez#
+ set bsp object collision 3+(ene-EneObj),ene,0.75,0
+ yrotate object ene,180 : fix object pivot ene
+ inc aliensleft
+next ene
+</FONT></PRE>As the above code uses the RESTORE and READ commands, we must provide some DATA statements containing coordinates to place the enemies throughout the world. These coordinates were calculated by walking around with the player and writing down the coordinate of the player:<BR>
+<BR>
+<PRE><FONT FACE=courier COLOR=BLUE>rem TUT8E
+rem Enemy position data within level
+EnemyPosData:
+data -9.27,9.98,-2.78
+data -16.54,-0.22,19.18
+data 2.0,9.0,25.0
+data -2.0,-9.0,25.0
+data 2,4.0,10.0
+</FONT></PRE><BR>
+CLICK <A HREF=..\main.htm>HERE</A> TO GO TO THE MAIN MENU<BR>
+<BR>
+<BR>
+</td></tr></table>
+<br>
+<!-- Page Footer -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center"><img src="..\gfx\dbph_foot_1.jpg" width="340" height="38"></td>
+</tr>
+</table>
+</body>
+</html>
