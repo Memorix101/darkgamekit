@@ -29,7 +29,7 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	Texture2D tex2D = LoadTexture(szFilename);        // Texture loading
 	Rectangle frameRec = { 0.0f, 0.0f, tex2D.width / iAcross, tex2D.height / iDown };
 
-	Sprite _sprite;
+	DGKSprite _sprite;
 	_sprite.id = iSprite;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
@@ -42,6 +42,7 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 {
 	//get sprite id in vector
 	int sprite_id = 0;
+
 	for (int i = 0; i < spriteRef.size(); i++)
 	{
 		if (spriteRef[i].id == iSprite)
@@ -104,7 +105,17 @@ void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV) {}
 
 int dbSpriteExist(int iSprite)
 {
-	return NULL;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			return 1;
+		}
+		else
+		{
+			return  0;
+		}
+	}
 }
 
 int dbSpriteX(int iSprite)

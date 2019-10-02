@@ -12,11 +12,11 @@
 #include <stdlib.h>
 
 //protected:
-	/*const char* window_title;
-	int window_width;
-	int window_height;
-	bool quit;
-	int sync_i;*/
+extern std::string window_title;
+extern	int window_width;
+extern	int window_height;
+// bool quit;
+// int sync_i
 
 extern int fontSize;
 extern int fontHeight;
@@ -38,25 +38,24 @@ int GetFontSize(std::string text);
 
 // references and other stuff
 
-struct printObj
+struct DGKPrint
 {
 	std::string text;
 	Rectangle pos;
 };
 extern bool printOnce;
-extern std::vector<printObj> printRef;
-extern std::vector<printObj> printCopy;
+extern std::vector<DGKPrint> printRef;
+extern std::vector<DGKPrint> printCopy;
 
-struct textObj
+struct DGKText
 {
 	std::string text;
 	Rectangle pos;
 	int fontSize;
 };
-extern std::vector<textObj> textRef;
+extern std::vector<DGKText> textRef;
 
-
-struct Sprite
+struct DGKSprite
 {
 	int id;
 	Texture2D texture2d;
@@ -64,7 +63,14 @@ struct Sprite
 	float frames_x;
 	float frames_y;
 };
-extern std::vector<Sprite> spriteRef;
+extern std::vector<DGKSprite> spriteRef;
+
+struct DGKSound
+{
+	int id;
+	float volume;
+};
+extern std::vector<Sound> soundRef;
 
 //private:
 void CallOnce();

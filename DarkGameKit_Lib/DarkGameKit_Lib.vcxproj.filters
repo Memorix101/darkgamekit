@@ -10,6 +10,15 @@
     <Filter Include="Sprite">
       <UniqueIdentifier>{69c7ec88-f8ca-4083-9edf-0f88c662c2d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Music">
+      <UniqueIdentifier>{bf551c68-c1b2-4ead-8c66-5b433d74d7a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{750bc2e1-b492-4b28-8ddc-2349ac3704b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Display">
+      <UniqueIdentifier>{551628d9-d110-4207-9ba5-e26b8dbe3019}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DarkGameKit.h" />
@@ -24,6 +33,15 @@
     <ClInclude Include="DGKSprite.h">
       <Filter>Sprite</Filter>
     </ClInclude>
+    <ClInclude Include="DGKMusic.h">
+      <Filter>Music</Filter>
+    </ClInclude>
+    <ClInclude Include="DGKSound.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="DGKDisplay.h">
+      <Filter>Display</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DGKCore.cpp">
@@ -36,8 +54,14 @@
     <ClCompile Include="DGKSprite.cpp">
       <Filter>Sprite</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="BUGS.txt" />
+    <ClCompile Include="DGKMusic.cpp">
+      <Filter>Music</Filter>
+    </ClCompile>
+    <ClCompile Include="DGKSound.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="DGKDisplay.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 Rectangle print_cursor;
 Rectangle last_print_cursor;
 Rectangle last_printPos;
-int printObjCount;
+int DGKPrintCount;
 
 //std::vector<std::function<void()>> q;
 
@@ -19,7 +19,7 @@ int printObjCount;
 	last_printPos.width = 0;
 	last_printPos.height = 0;
 
-	printObjCount = 0;
+	DGKPrintCount = 0;
 }*/
 
 void dbSyncOn()
@@ -60,24 +60,24 @@ void dbSetCursor(int x, int y)
 
 void dbPrint(std::string text)
 {
-	printObj a;
+	DGKPrint a;
 	a.text = text;
 
-	if (print_cursor.y != last_print_cursor.y)// && last_printPos.y == ((printFontHeight)* printObjCount))
+	if (print_cursor.y != last_print_cursor.y)// && last_printPos.y == ((printFontHeight)* DGKPrintCount))
 	{
-		printObjCount = 0;
+		DGKPrintCount = 0;
 	}
 
 	if (!printRef.empty()) {
 		if (!fontScrolling) {
 			a.pos.x = print_cursor.x;;
 			if (print_cursor.y == 0) {
-				a.pos.y = 0 + ((printFontHeight)*printObjCount);// +(last_printPos.y));// * printRef.size()); 
+				a.pos.y = 0 + ((printFontHeight)*DGKPrintCount);// +(last_printPos.y));// * printRef.size()); 
 				// 0 + 15 defaultFontHeight * printRef.size() = 0 ...
 			}
 			else
 			{
-				a.pos.y = print_cursor.y + ((printFontHeight) * (printObjCount));
+				a.pos.y = print_cursor.y + ((printFontHeight) * (DGKPrintCount));
 			}
 		}
 		else
@@ -89,7 +89,7 @@ void dbPrint(std::string text)
 			}
 			else
 			{
-				a.pos.y = print_cursor.y + ((printFontHeight) * (printObjCount));
+				a.pos.y = print_cursor.y + ((printFontHeight) * (DGKPrintCount));
 			}
 		}
 	}
@@ -107,7 +107,7 @@ void dbPrint(std::string text)
 	//std::cout << " printRef.size() " << printRef.size() << std::endl;
 	printRef.push_back(a);
 
-	printObjCount++;
+	DGKPrintCount++;
 
 	last_printPos.x = a.pos.x;
 	last_printPos.y = a.pos.y;

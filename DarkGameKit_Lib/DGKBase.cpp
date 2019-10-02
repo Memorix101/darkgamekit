@@ -1,12 +1,12 @@
 #include "DGKBase.h"
 
-std::vector<printObj>  printRef;
-std::vector<printObj>  printCopy;
-std::vector<textObj> textRef;
+std::vector<DGKPrint>  printRef;
+std::vector<DGKPrint>  printCopy;
+std::vector<DGKText> textRef;
 bool printOnce = false;
 float a = 10;
 
-std::vector<Sprite> spriteRef;
+std::vector<DGKSprite> spriteRef;
 
 int fontHeight = 0;
 int fontWidth = 0;

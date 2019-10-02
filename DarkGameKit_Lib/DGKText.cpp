@@ -1,10 +1,10 @@
 #include "DGKText.h"
 
-//std::vector<textObj> textRef;
+//std::vector<DGKText> textRef;
 
 void dbText(int x, int y, std::string text)
 {
-	textObj a;
+	DGKText a;
 	a.text = text;
 	GetFontSize(text);
 	a.pos.x = x;
@@ -15,7 +15,7 @@ void dbText(int x, int y, std::string text)
 
 void dbCenterText(int x, int y, std::string text)
 {
-	textObj a;
+	DGKText a;
 	a.text = text;
 	GetFontSize(text);
 	a.pos.x = (x) - (fontWidth / 2);
