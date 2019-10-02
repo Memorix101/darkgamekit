@@ -41,13 +41,17 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 		else
 		{
 			_sprite.id = iSprite;
+			_sprite.image_id = iImage;
+			_sprite.visible = true;
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
 			spriteRef.push_back(_sprite);
 		}
 
 		//std::cout << spriteRef.size() << std::endl;
-
-		DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
+		if (spriteRef[sprite_id].visible == true)
+		{
+			DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
+		}
 	}
 	else
 	{
@@ -56,10 +60,55 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 }
 
 void dbSetSprite(int iSprite, int iBackSave, int iTransparency) {}
+
 void dbDeleteSprite(int iSprite) {}
+
 void dbCloneSprite(int iSprite, int iDestination) {}
-void dbShowSprite(int iSprite) {}
-void dbHideSprite(int iSprite) {}
+
+void dbShowSprite(int iSprite)
+{
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				spriteRef[i].visible = true;
+			}
+			else
+			{
+				//error
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+}
+
+void dbHideSprite(int iSprite)
+{
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				spriteRef[i].visible = false;
+			}
+			else
+			{
+				//error
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+}
+
 void dbHideAllSprites(void) {}
 void dbShowAllSprites(void) {}
 void dbMoveSprite(int iNUmber, float fVelocity) {}
@@ -77,8 +126,12 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	Texture2D tex2D = LoadTexture(szFilename);        // Texture loading
 	Rectangle frameRec = { 0.0f, 0.0f, tex2D.width / iAcross, tex2D.height / iDown };
 
+	//TODO Create DGKImage first and covert it to DKGSprite. So we have it handle it the vector 
+
 	DGKSprite _sprite;
 	_sprite.id = iSprite;
+	//_sprite.image_id = iImage;
+	_sprite.visible = true;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
 	_sprite.frames_x = iAcross;
@@ -147,7 +200,10 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		//std::cout << "currentFrame " << currentFrame << " X " << spriteRef[iSprite - 1].rect.x << " Y " << spriteRef[iSprite - 1].rect.y << std::endl;
 	}
 
-	DrawTextureRec(spriteRef[sprite_id].texture2d, spriteRef[sprite_id].rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
+	if (spriteRef[sprite_id].visible == true)
+	{
+		DrawTextureRec(spriteRef[sprite_id].texture2d, spriteRef[sprite_id].rect, Vector2{ 0, 0 }, WHITE);  // Draw part of the texture
+	}
 }
 
 void dbSetSpriteFrame(int iSprite, int iFrame) {}
@@ -215,7 +271,24 @@ int dbSpriteHeight(int iSprite)
 
 int dbSpriteImage(int iSprite)
 {
-	return NULL;
+	int image_id = -1;
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				image_id = spriteRef[i].image_id;
+				break;
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+
+	return image_id;
 }
 
 int dbSpriteMirrored(int iSprite)
@@ -270,5 +343,25 @@ int dbSpriteBlue(int iSprite)
 
 int dbSpriteVisible(int iSprite)
 {
-	return NULL;
+	int visible = 0;
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				if(spriteRef[i].visible == true)
+				{
+					visible = 1;
+				}
+				break;
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+
+	return visible;
 }

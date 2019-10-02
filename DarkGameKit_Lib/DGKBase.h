@@ -58,6 +58,8 @@ extern std::vector<DGKText> textRef;
 struct DGKSprite
 {
 	int id;
+	int image_id;
+	bool visible;
 	Texture2D texture2d;
 	Rectangle rect;
 	float frames_x;

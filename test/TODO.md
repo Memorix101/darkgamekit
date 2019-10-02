@@ -1,16 +1,16 @@
 # TODO
 
-dbDeleteImage
+dbDeleteImage ✅
 
-dbSpriteImage
-dbCloneSprite
-dbHideSprite
+dbSpriteImage ✅
+dbCloneSprite 
+dbHideSprite ✅
 dbDeleteSprite
 dbSetSpriteFrame
 dbSetSpritePriority
 dbSpriteFrame
-dbSpriteVisible
-dbShowSprite
+dbSpriteVisible ✅
+dbShowSprite ✅
 
 ##### DBPRo behaviour
 
