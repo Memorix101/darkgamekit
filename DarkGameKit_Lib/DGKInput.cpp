@@ -1,16 +1,17 @@
 #include "DGKInput.h"
 
 
-int dbKeyState(int iScanCode)
+bool dbKeyState(int iScanCode)
 {
-	int pressed = 0;
+	bool pressed = false;
 
 	// db scancode to raylib mapping
 	int _scancode = 0;
 
-	if (IsKeyPressed(_scancode))
+	if (IsKeyPressed(KEY_SPACE))
 	{
-		pressed = 1;
+		std::cout << "dbKeyState " << iScanCode << std::endl;
+		pressed = true;
 	}
 
 	return pressed;

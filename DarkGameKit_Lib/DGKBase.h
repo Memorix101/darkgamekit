@@ -1,6 +1,7 @@
 #pragma once
 
 #include <raylib.h>
+#include <rlgl.h>
 
 #include <cstdio>
 #include <string>

@@ -335,12 +335,14 @@ void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV)
 		if (spriteRef[i].id == iSprite)
 		{
 			sprite_id = i;
-		}
 
-		Rectangle _rect = spriteRef[sprite_id].rect;
-		_rect.width = spriteRef[sprite_id].rect.width * fU;
-		_rect.height = spriteRef[sprite_id].rect.height * fV;
-		spriteRef[sprite_id].rect = _rect;
+			Rectangle _rect = spriteRef[sprite_id].rect;
+			// UV https://learn.foundry.com/nuke/8.0/content/resources/images/ug_images/uv_coordinates.png
+			_rect.width = fU; //x
+			_rect.height = fV; //y
+			spriteRef[sprite_id].rect = _rect;
+			spriteRef[sprite_id].setUV = true;
+		}
 
 		/*
 		if (spriteRef[sprite_id].visible == true)

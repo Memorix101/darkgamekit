@@ -1,4 +1,4 @@
 #pragma once
 #include "DGKBase.h"
 
-int dbKeyState(int iScanCode);
+bool dbKeyState(int iScanCode);

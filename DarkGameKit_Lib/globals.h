@@ -52,6 +52,7 @@ struct DGKSprite
 	int layer = 0; //priority 
 	bool visible = false;
 	bool animated = false;
+	bool setUV = false;
 	Texture2D texture2d;
 	Rectangle rect; //animation
 	Vector2 pos = {0, 0};

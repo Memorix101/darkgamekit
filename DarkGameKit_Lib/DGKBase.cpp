@@ -614,14 +614,73 @@ void CallOnce()
 	//draw loop
 	for (auto sprite : spriteRef)
 	{
-		if (sprite.animated == false && sprite.visible == true)
+		if (sprite.animated == false && sprite.visible == true && sprite.setUV == false)
 		{
 			DrawTexture(sprite.texture2d, sprite.pos.x, sprite.pos.y, WHITE);
 		}
-		else if (sprite.animated == true && sprite.visible == true)
+		else if (sprite.animated == true && sprite.visible == true && sprite.setUV == false)
 		{
 			DrawTextureRec(sprite.texture2d, sprite.rect, sprite.pos, WHITE);  // Draw part of the texture
 		}
+		else if (sprite.animated == false && sprite.visible == true && sprite.setUV == true)
+		{
+			/*DrawTextureQuad(sprite.texture2d,
+				{sprite.rect.width, sprite.rect.height},
+				{0, 0},
+				{sprite.pos.x, sprite.pos.y, (float)sprite.texture2d.width, (float)sprite.texture2d.height}, WHITE);*/
+
+				// Check if texture is valid
+			if (sprite.texture2d.id > 0)
+			{
+				float width = (float)sprite.texture2d.width;
+				float height = (float)sprite.texture2d.height;
+
+				bool flipX = false;
+				Color tint = WHITE;
+
+				// offset.x*texture.width, offset.y*texture.height, tiling.x*texture.width, tiling.y*texture.height
+				Rectangle sourceRec = { 0, 0, sprite.rect.width * sprite.texture2d.width, sprite.rect.height * sprite.texture2d.height };
+				Rectangle destRec = { sprite.pos.x, sprite.pos.y, (float)sprite.texture2d.width, (float)sprite.texture2d.height };
+				float rotation = 0.0f;
+				Vector2 origin = { 0.0f, 0.0f };
+
+				//if (sourceRec.width < 0) { flipX = true; sourceRec.width *= -1; }
+				//if (sourceRec.height < 0) sourceRec.y -= sourceRec.height;
+
+				rlEnableTexture(sprite.texture2d.id);
+
+				rlPushMatrix();
+				rlTranslatef(destRec.x, destRec.y, 0.0f);
+				rlRotatef(rotation, 0.0f, 0.0f, 1.0f);
+				rlTranslatef(-origin.x, -origin.y, 0.0f);
+
+				rlBegin(RL_QUADS);
+				rlColor4ub(tint.r, tint.g, tint.b, tint.a);
+				rlNormal3f(0.0f, 0.0f, 1.0f);                          // Normal vector pointing towards viewer
+
+				// Bottom-left corner for texture and quad
+				rlTexCoord2f(sourceRec.x / width, sourceRec.y / height);
+				rlVertex2f(0.0f, 0.0f);
+
+				// Bottom-right corner for texture and quad
+				rlTexCoord2f(sourceRec.x / width, (sourceRec.y + sourceRec.height) / height);
+				rlVertex2f(0.0f, destRec.height);
+
+				// Top-right corner for texture and quad
+				rlTexCoord2f((sourceRec.x + sourceRec.width) / width, (sourceRec.y + sourceRec.height) / height);
+				rlVertex2f(destRec.width, destRec.height);
+
+				// Top-left corner for texture and quad
+				rlTexCoord2f((sourceRec.x + sourceRec.width) / width, sourceRec.y / height);
+				rlVertex2f(destRec.width, 0.0f);
+				rlEnd();
+				rlPopMatrix();
+
+				rlDisableTexture();
+			}
+
+		}
+
 	}
 }
 
