@@ -12,6 +12,8 @@ void invaderTextSetup(void)
 // our main text routine
 void InvaderText(int iX, int iY, int iSize, const char* czText, bool bHorizontalCenter = false, bool bVerticalCenter = false)
 {
+	std::cout << "DEBUG LOG: " << czText << std::endl;
+	
 	// if bHorizonalCenter is true then work out the x coordinate to make the text centered
 	if (bHorizontalCenter)
 	{

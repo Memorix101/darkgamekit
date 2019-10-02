@@ -528,6 +528,8 @@ void SetSystemFont()
 
 void Init()
 {
+	SetTraceLogLevel(LOG_NONE);
+	//SetTraceLogExit(LOG_NONE);
 	InitWindow(window_width, window_height, window_title.c_str());
 	InitAudioDevice();
 	SetIcon();
@@ -544,16 +546,15 @@ void InitFont()
 	UnloadFont(ttf_font);*/
 }
 
-//void DrawTexCoord(DGKSprite sprite, int iVertex, float fU, float fV)
 void DrawTexCoord(DGKSprite sprite, float fU[4], float fV[4])
 {
 	// Check if texture is valid
 	if (sprite.texture2d.id > 0)
 	{
 		// UV -> U = x-axis; V = y-axis
-		
-		float Ux[4] = {fU[0], fU[1], fU[2], fU[3]};
-		float Vy[4] = {fV[0], fV[1], fV[2], fV[3]};
+
+		float Ux[4] = { fU[0], fU[1], fU[2], fU[3] };
+		float Vy[4] = { fV[0], fV[1], fV[2], fV[3] };
 
 		float width = (float)sprite.texture2d.width;
 		float height = (float)sprite.texture2d.height;
@@ -568,21 +569,17 @@ void DrawTexCoord(DGKSprite sprite, float fU[4], float fV[4])
 		rlBegin(RL_QUADS);
 		rlColor4ub(tint.r, tint.g, tint.b, tint.a);
 
-		// Bottom-left corner for texture and quad
-		rlTexCoord2f(Ux[0], Vy[0]);
-		rlVertex2f(0.0f, 0.0f);
-
-		// Bottom-right corner for texture and quad
-		rlTexCoord2f(Ux[1], Vy[1]);
+		rlTexCoord2f(-Ux[0], Vy[0]);
 		rlVertex2f(0.0f, height);
 
-		// Top-right corner for texture and quad
-		rlTexCoord2f(Ux[2], Vy[2]);
+		rlTexCoord2f(-Ux[1], Vy[1]);
 		rlVertex2f(width, height);
 
-		// Top-left corner for texture and quad
-		rlTexCoord2f(Ux[3], Vy[3]);
+		rlTexCoord2f(-Ux[2], Vy[2]);
 		rlVertex2f(width, 0.0f);
+
+		rlTexCoord2f(-Ux[3], Vy[3]);
+		rlVertex2f(0.0f, 0.0f);
 
 		rlEnd();
 		rlPopMatrix();

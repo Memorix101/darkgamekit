@@ -61,8 +61,8 @@ struct DGKSprite
 	int currentFrame = 0;
 	int currentFrameTmp = 0;
 	const char* filepath;
-	float fU[4] = { 0.0f, 0.0f,  1.0f,  1.0f };
-	float fV[4] = { 0.0f, 1.0f, 1.0f,  1.0f };
+	float fU[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	float fV[4] = { 0.0f, 1.0f, 0.0f, 1.0f };
 };
 extern std::vector<DGKSprite> spriteRef;
 

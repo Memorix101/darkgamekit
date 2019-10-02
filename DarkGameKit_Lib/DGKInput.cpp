@@ -1,6 +1,5 @@
 #include "DGKInput.h"
 
-
 bool dbKeyState(int iScanCode)
 {
 	bool pressed = false;

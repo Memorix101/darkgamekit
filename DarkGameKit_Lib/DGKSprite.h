@@ -9,7 +9,7 @@ void dbShowSprite ( int iSprite );
 void dbHideSprite ( int iSprite );
 void dbHideAllSprites ( void );
 void dbShowAllSprites ( void );
-void dbMoveSprite ( int iNUmber, float fVelocity );
+void dbMoveSprite ( int iSprite, float fVelocity );
 void dbOffsetSprite ( int iSprite, int iX, int iY );
 void dbScaleSprite ( int iSprite, int iScale );
 void dbSizeSprite ( int iSprite, int iX, int iY );
