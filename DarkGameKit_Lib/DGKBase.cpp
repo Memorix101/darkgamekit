@@ -544,57 +544,43 @@ void InitFont()
 	UnloadFont(ttf_font);*/
 }
 
-void DrawTexCoord(DGKSprite sprite, int iVertex, float fU, float fV)
+//void DrawTexCoord(DGKSprite sprite, int iVertex, float fU, float fV)
+void DrawTexCoord(DGKSprite sprite, float fU[4], float fV[4])
 {
 	// Check if texture is valid
 	if (sprite.texture2d.id > 0)
 	{
 		// UV -> U = x-axis; V = y-axis
-		float Ux[4] = { 0.0f, 0.0f, 1.0f, 1.0f };
-		float Vy[4] = { 0.0f, 1.0f, 1.0f, 0.0f };
+		
+		float Ux[4] = {fU[0], fU[1], fU[2], fU[3]};
+		float Vy[4] = {fV[0], fV[1], fV[2], fV[3]};
 
 		float width = (float)sprite.texture2d.width;
 		float height = (float)sprite.texture2d.height;
 		Color tint = WHITE;
 		Vector2 pos = sprite.pos;
 
-		// offset.x*texture.width, offset.y*texture.height, tiling.x*texture.width, tiling.y*texture.height
-		//Rectangle sourceRec = { 0, 0, sprite.rect.width * sprite.texture2d.width, sprite.rect.height * sprite.texture2d.height };
-		//Rectangle sourceRec = { 0, 0, sprite.rect.width * sprite.texture2d.width, sprite.rect.height * sprite.texture2d.height };
-		//Rectangle destRec = { sprite.pos.x, sprite.pos.y, (float)sprite.texture2d.width, (float)sprite.texture2d.height };
-		float rotation = 0.0f;
-		Vector2 origin = { 0.0f, 0.0f };
-
 		rlEnableTexture(sprite.texture2d.id);
 
 		rlPushMatrix();
 		rlTranslatef(pos.x, pos.y, 0.0f);
-		//rlRotatef(rotation, 0.0f, 0.0f, 1.0f);
-		//rlTranslatef(-origin.x, -origin.y, 0.0f);
 
 		rlBegin(RL_QUADS);
 		rlColor4ub(tint.r, tint.g, tint.b, tint.a);
 
-		Ux[iVertex] = fU;
-		Vy[iVertex] = fV;
-		
 		// Bottom-left corner for texture and quad
-		//rlTexCoord2f(sourceRec.x / width, sourceRec.y / height);
 		rlTexCoord2f(Ux[0], Vy[0]);
 		rlVertex2f(0.0f, 0.0f);
 
 		// Bottom-right corner for texture and quad
-		//rlTexCoord2f(sourceRec.x / width, (sourceRec.y + sourceRec.height) / height);
 		rlTexCoord2f(Ux[1], Vy[1]);
 		rlVertex2f(0.0f, height);
 
 		// Top-right corner for texture and quad
-		//rlTexCoord2f((sourceRec.x + sourceRec.width) / width, (sourceRec.y + sourceRec.height) / height);
 		rlTexCoord2f(Ux[2], Vy[2]);
 		rlVertex2f(width, height);
 
 		// Top-left corner for texture and quad
-		//rlTexCoord2f((sourceRec.x + sourceRec.width) / width, sourceRec.y / height);
 		rlTexCoord2f(Ux[3], Vy[3]);
 		rlVertex2f(width, 0.0f);
 
@@ -685,11 +671,7 @@ void CallOnce()
 		}
 		else if (sprite.animated == false && sprite.visible == true && sprite.setUV == true)
 		{
-			/*DrawTextureQuad(sprite.texture2d,
-				{sprite.rect.width, sprite.rect.height},
-				{0, 0},
-				{sprite.pos.x, sprite.pos.y, (float)sprite.texture2d.width, (float)sprite.texture2d.height}, WHITE);*/
-			DrawTexCoord(sprite, 0, sprite.rect.width, sprite.rect.height);
+			DrawTexCoord(sprite, sprite.fU, sprite.fV);
 		}
 
 	}

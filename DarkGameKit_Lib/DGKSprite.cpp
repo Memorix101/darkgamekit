@@ -15,7 +15,7 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 
 	bool _sprite_exists = false;
 
-	if (dbImageExist(iImage) == 1) //only assign and draw if image exists
+	if (dbImageExist(iImage) == 1) //if image exist assign it to sprite
 	{
 		for (int i = 0; i < imageRef.size(); i++)
 		{
@@ -25,7 +25,7 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 			}
 		}
 
-		if (dbSpriteExist(iSprite) == 1)
+		if (dbSpriteExist(iSprite) == 1) //if sprite exist update values
 		{
 			for (int i = 0; i < spriteRef.size(); i++)
 			{
@@ -36,15 +36,13 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 					spriteRef[i].pos.x = iX;
 					spriteRef[i].pos.y = iY;
 					spriteRef[i].visible = true;
-					//UnloadTexture(spriteRef[sprite_id].texture2d);
-				}
-
-				if (sprite_id != 0)
 					break;
+				}
 			}
 		}
 		else
 		{
+			//if image exist assign it to sprite
 			_sprite.id = iSprite;
 			_sprite.image_id = iImage;
 			_sprite.pos.x = iX;
@@ -54,16 +52,29 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
 			spriteRef.push_back(_sprite);
 		}
-
-		//std::cout << spriteRef.size() << std::endl;
-		/*if (spriteRef[sprite_id].visible == true && _sprite_exists == true)
-		{
-			DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
-		}*/
 	}
 	else
 	{
-		//error
+		if (dbSpriteExist(iSprite) == 1) //if sprite exist assign it to image
+		{
+			for (int i = 0; i < spriteRef.size(); i++)
+			{
+				DGKImage _image;
+				_image.id = iImage;
+				_image.image = LoadImage(spriteRef[i].filepath);
+				imageRef.push_back(_image);
+
+				if (spriteRef[i].id == iSprite) //if sprite exist update values
+				{
+					sprite_id = i;
+					_sprite_exists = true;
+					spriteRef[i].pos.x = iX;
+					spriteRef[i].pos.y = iY;
+					spriteRef[i].visible = true;
+					break;
+				}
+			}
+		}
 	}
 }
 
@@ -214,10 +225,12 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	_sprite.id = iSprite;
 	//_sprite.image_id = iImage;
 	_sprite.animated = true;
+	_sprite.visible = true;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
 	_sprite.frames_x = iAcross;
 	_sprite.frames_y = iDown;
+	_sprite.filepath = szFilename;
 	spriteRef.push_back(_sprite);
 }
 
@@ -335,12 +348,9 @@ void dbSetSpriteTextureCoord(int iSprite, int iVertex, float fU, float fV)
 		if (spriteRef[i].id == iSprite)
 		{
 			sprite_id = i;
-
-			Rectangle _rect = spriteRef[sprite_id].rect;
 			// UV https://learn.foundry.com/nuke/8.0/content/resources/images/ug_images/uv_coordinates.png
-			_rect.width = fU; //x
-			_rect.height = fV; //y
-			spriteRef[sprite_id].rect = _rect;
+			spriteRef[sprite_id].fU[iVertex] = fU; //x
+			spriteRef[sprite_id].fV[iVertex] = fV; //y
 			spriteRef[sprite_id].setUV = true;
 		}
 
@@ -371,12 +381,30 @@ int dbSpriteExist(int iSprite)
 
 int dbSpriteX(int iSprite)
 {
-	return NULL;
+	int pos = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			pos = spriteRef[i].pos.x;
+			break;
+		}
+	}
+	return pos;
 }
 
 int dbSpriteY(int iSprite)
 {
-	return NULL;
+	int pos = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			pos = spriteRef[i].pos.y;
+			break;
+		}
+	}
+	return pos;
 }
 
 int dbSpriteOffsetX(int iSprite)
@@ -401,12 +429,30 @@ int dbSpriteScaleY(int iSprite)
 
 int dbSpriteWidth(int iSprite)
 {
-	return NULL;
+	int width = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			width = spriteRef[i].texture2d.width;
+			break;
+		}
+	}
+	return width;
 }
 
 int dbSpriteHeight(int iSprite)
 {
-	return NULL;
+	int height = 0;
+	for (int i = 0; i < spriteRef.size(); i++)
+	{
+		if (spriteRef[i].id == iSprite)
+		{
+			height = spriteRef[i].texture2d.height;
+			break;
+		}
+	}
+	return height;
 }
 
 int dbSpriteImage(int iSprite)

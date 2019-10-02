@@ -55,11 +55,14 @@ struct DGKSprite
 	bool setUV = false;
 	Texture2D texture2d;
 	Rectangle rect; //animation
-	Vector2 pos = {0, 0};
+	Vector2 pos = { 0, 0 };
 	float frames_x;
 	float frames_y;
 	int currentFrame = 0;
 	int currentFrameTmp = 0;
+	const char* filepath;
+	float fU[4] = { 0.0f, 0.0f,  1.0f,  1.0f };
+	float fV[4] = { 0.0f, 1.0f, 1.0f,  1.0f };
 };
 extern std::vector<DGKSprite> spriteRef;
 

@@ -41,12 +41,12 @@ int dbScreenType ( void )
 
 int dbScreenWidth ( void )
 {
-	return NULL;
+	return window_width;
 }
 
 int dbScreenHeight ( void )
 {
-	return NULL;
+	return window_height;
 }
 
 int dbScreenDepth ( void )
