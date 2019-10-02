@@ -549,7 +549,7 @@ void CallOnce()
 	for (static bool first = true; first; first = false) {
 		//DarkGDK();
 		//printCopy = printRef;
-		std::cout << "printSize: " << printRef.size() << std::endl;
+		//std::cout << "printSize: " << printRef.size() << std::endl;
 	}
 
 	/*for (int i = 0; i < printCopy.size(); i++)

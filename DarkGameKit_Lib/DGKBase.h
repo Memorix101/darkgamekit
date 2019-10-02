@@ -59,6 +59,7 @@ struct DGKSprite
 {
 	int id;
 	int image_id;
+	int layer; //priority 
 	bool visible;
 	Texture2D texture2d;
 	Rectangle rect;

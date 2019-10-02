@@ -1,16 +1,16 @@
 # TODO
 
-dbDeleteImage ✅
+dbDeleteImage ✔
 
-dbSpriteImage ✅
-dbCloneSprite ✅
-dbHideSprite ✅
-dbDeleteSprite
+dbSpriteImage ✔
+dbCloneSprite ✔
+dbHideSprite ✔
+dbDeleteSprite ✔
 dbSetSpriteFrame
-dbSetSpritePriority
+dbSetSpritePriority 🟡 Add sort function to DGK draw loop
 dbSpriteFrame
-dbSpriteVisible ✅
-dbShowSprite ✅
+dbSpriteVisible ✔
+dbShowSprite ✔
 
 ##### DBPRo behaviour
 

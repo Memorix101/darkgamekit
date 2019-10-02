@@ -12,7 +12,6 @@ void dbSaveImage(const char* szFilename, int iImage) { }
 
 void dbDeleteImage(int iImage)
 {
-	int sprite_id = 0;
 	if (dbImageExist(iImage) == 1)
 	{
 		for (int i = 0; i < imageRef.size(); i++)
@@ -22,10 +21,6 @@ void dbDeleteImage(int iImage)
 				UnloadImage(imageRef[i].image);
 				imageRef.erase(imageRef.begin() + i); // deletes single item by index https://stackoverflow.com/questions/875103/how-do-i-erase-an-element-from-stdvector-by-index
 				break;
-			}
-			else
-			{
-				//error
 			}
 		}
 	}

@@ -45,6 +45,7 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 		{
 			_sprite.id = iSprite;
 			_sprite.image_id = iImage;
+			_sprite.layer = 0;
 			_sprite.visible = true;
 			_sprite_exists = true;
 			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
@@ -65,7 +66,25 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 
 void dbSetSprite(int iSprite, int iBackSave, int iTransparency) {}
 
-void dbDeleteSprite(int iSprite) {}
+void dbDeleteSprite(int iSprite)
+{
+	if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				UnloadTexture(spriteRef[i].texture2d);
+				spriteRef.erase(spriteRef.begin() + i); // deletes single item by index https://stackoverflow.com/questions/875103/how-do-i-erase-an-element-from-stdvector-by-index
+				break;
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+}
 
 void dbCloneSprite(int iSprite, int iDestination)
 {
@@ -159,6 +178,7 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	DGKSprite _sprite;
 	_sprite.id = iSprite;
 	//_sprite.image_id = iImage;
+	_sprite.layer = 0;
 	_sprite.visible = true;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
@@ -235,7 +255,29 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 }
 
 void dbSetSpriteFrame(int iSprite, int iFrame) {}
-void dbSetSpritePriority(int iSprite, int iPriority) {}
+
+void dbSetSpritePriority(int iSprite, int iPriority)
+{
+		if (dbSpriteExist(iSprite) == 1)
+	{
+		for (int i = 0; i < spriteRef.size(); i++)
+		{
+			if (spriteRef[i].id == iSprite)
+			{
+				spriteRef[i].layer = iPriority;
+			}
+			else
+			{
+				//error
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+}
+
 void dbSetSpriteImage(int iSprite, int iImage) {}
 void dbSetSpriteAlpha(int iSprite, int iAlpha) {}
 void dbSetSpriteDiffuse(int iSprite, int iRed, int iGreen, int iBlue) {}
