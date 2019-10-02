@@ -14,7 +14,7 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 	int sprite_id = 0;
 	DGKSprite _sprite;
 
-	if (dbImageExist(iImage) == 1)
+	if (dbImageExist(iImage) == 1) //only assign and draw if image exists
 	{
 		for (int i = 0; i < imageRef.size(); i++)
 		{
@@ -23,36 +23,36 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 				image_id = i;
 			}
 		}
+
+		if (dbSpriteExist(iSprite) == 1)
+		{
+			for (int i = 0; i < spriteRef.size(); i++)
+			{
+				if (spriteRef[i].id == iImage)
+				{
+					sprite_id = i;
+					UnloadTexture(spriteRef[sprite_id].texture2d);
+				}
+
+				if (sprite_id != 0)
+					break;
+			}
+		}
+		else
+		{
+			_sprite.id = iSprite;
+			_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
+			spriteRef.push_back(_sprite);
+		}
+
+		//std::cout << spriteRef.size() << std::endl;
+
+		DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
 	}
 	else
 	{
 		//error
 	}
-
-	if (dbSpriteExist(iSprite) == 1)
-	{
-		for (int i = 0; i < spriteRef.size(); i++)
-		{
-			if (spriteRef[i].id == iImage)
-			{
-				sprite_id = i;
-				UnloadTexture(spriteRef[sprite_id].texture2d);
-			}
-
-			if (sprite_id != 0)
-				break;
-		}
-	}
-	else
-	{
-		_sprite.id = iSprite;
-		_sprite.texture2d = LoadTextureFromImage(imageRef[image_id].image);
-		spriteRef.push_back(_sprite);
-	}
-
-	//std::cout << spriteRef.size() << std::endl;
-	
-	DrawTexture(spriteRef[sprite_id].texture2d, iX, iY, WHITE);
 }
 
 void dbSetSprite(int iSprite, int iBackSave, int iTransparency) {}
