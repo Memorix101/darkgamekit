@@ -29,13 +29,13 @@ bool dbKeyState(int iScanCode)
 		_scancode = KEY_RIGHT;
 		break;
 	case 32:
-		_scancode = KEY_S;
+		_scancode = KEY_D;
 		break;
 	}
 
 	if (IsKeyDown(_scancode))
 	{
-		std::cout << "dbKeyState " << iScanCode << std::endl;
+		//std::cout << "dbKeyState " << iScanCode << std::endl;
 		pressed = true;
 	}
 
