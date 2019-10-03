@@ -263,6 +263,8 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 {
 	//get sprite id in vector
 	int sprite_id = 0;
+	int start_offset = iStart;
+	
 	if (dbSpriteExist(iSprite) == 1)
 	{
 		for (int i = 0; i < spriteRef.size(); i++)
@@ -298,27 +300,19 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		{
 			framesCounter = 0;
 
-			if (spriteRef[sprite_id].currentFrame > iEnd)
-			{
-				// reset
+			if (spriteRef[sprite_id].currentFrame > iEnd) // reset
+			{			
 				spriteRef[sprite_id].currentFrame_X = 0;
 				spriteRef[sprite_id].currentFrame_Y = 0;
-				spriteRef[sprite_id].rect.y = 0;
-				spriteRef[sprite_id].rect.x = 0;
-				spriteRef[sprite_id].currentFrame = 0;
-				std::cout << "iEnd " << std::endl;
-			}
-			if (spriteRef[sprite_id].currentFrame_X >= spriteRef[sprite_id].frames_x)
-			{
-				spriteRef[sprite_id].currentFrame_Y += 1;
-				spriteRef[sprite_id].currentFrame_X = 0; // reset x rect
+				spriteRef[sprite_id].currentFrame = start_offset;
+				//std::cout << "iEnd " << std::endl;
 			}
 
-			if (spriteRef[sprite_id].currentFrame_Y * spriteRef[sprite_id].rect.height > spriteRef[sprite_id].texture2d.height)
-			{
-				spriteRef[sprite_id].currentFrame_Y = 0; // reset
-				spriteRef[sprite_id].currentFrame = 0; // reset
-			}
+			int f_x = spriteRef[sprite_id].currentFrame % spriteRef[sprite_id].frames_x;
+			int f_y = spriteRef[sprite_id].currentFrame / spriteRef[sprite_id].frames_y;
+
+			spriteRef[sprite_id].currentFrame_X = f_x;
+			spriteRef[sprite_id].currentFrame_Y = f_y;
 
 			spriteRef[sprite_id].rect.x = (float)spriteRef[sprite_id].currentFrame_X * spriteRef[sprite_id].rect.width;
 			spriteRef[sprite_id].rect.y = (float)spriteRef[sprite_id].currentFrame_Y * spriteRef[sprite_id].rect.height;
@@ -354,9 +348,10 @@ void dbSetSpriteFrame(int iSprite, int iFrame)
 			}
 		}
 
+		std::cout << "dbSetSpriteFrame" << std::endl;
+
 		//set frame
 		spriteRef[sprite_id].currentFrame = iFrame;
-
 		int f_x = (iFrame % spriteRef[sprite_id].frames_x);
 		int f_y = iFrame / spriteRef[sprite_id].frames_y;
 
@@ -365,8 +360,8 @@ void dbSetSpriteFrame(int iSprite, int iFrame)
 		spriteRef[sprite_id].rect.x = (float)spriteRef[sprite_id].currentFrame_X * spriteRef[sprite_id].rect.width;
 		spriteRef[sprite_id].rect.y = (float)spriteRef[sprite_id].currentFrame_Y * spriteRef[sprite_id].rect.height;
 
-		std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame << " currentFrame_X " << spriteRef[sprite_id].currentFrame_X << " X "
-			<< spriteRef[sprite_id].rect.x << " Y " << spriteRef[sprite_id].rect.y << std::endl;
+		/*std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame << " currentFrame_X " << spriteRef[sprite_id].currentFrame_X << " X "
+			<< spriteRef[sprite_id].rect.x << " Y " << spriteRef[sprite_id].rect.y << std::endl;*/
 	}
 	else
 	{

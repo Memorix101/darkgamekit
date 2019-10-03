@@ -12,30 +12,50 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DarkGameKit_Lib", "DarkGame
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Getting Started", "Examples\Getting Started\Getting Started.vcxproj", "{EF933163-2DF6-422E-8BFD-72DEB99563AA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dark Invaders", "Examples\Dark Invaders\Dark Invaders.vcxproj", "{C77338DB-0FFA-4B79-B697-F20C97F791FA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dark Invaders", "examples\Dark Invaders\Dark Invaders.vcxproj", "{C77338DB-0FFA-4B79-B697-F20C97F791FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustForFunCompiler", "compiler\JustForFunCompiler\JustForFunCompiler.csproj", "{F75B7DFA-2151-4808-AF33-3B9F09B679A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B64E2C0B-0844-4258-9768-1CE5A05E610C}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{B64E2C0B-0844-4258-9768-1CE5A05E610C}.Debug|x86.ActiveCfg = Debug|Win32
 		{B64E2C0B-0844-4258-9768-1CE5A05E610C}.Debug|x86.Build.0 = Debug|Win32
+		{B64E2C0B-0844-4258-9768-1CE5A05E610C}.Release|Any CPU.ActiveCfg = Release|Win32
 		{B64E2C0B-0844-4258-9768-1CE5A05E610C}.Release|x86.ActiveCfg = Release|Win32
 		{B64E2C0B-0844-4258-9768-1CE5A05E610C}.Release|x86.Build.0 = Release|Win32
+		{B61B9D41-83C4-43FA-B02E-194104068981}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{B61B9D41-83C4-43FA-B02E-194104068981}.Debug|x86.ActiveCfg = Debug|Win32
 		{B61B9D41-83C4-43FA-B02E-194104068981}.Debug|x86.Build.0 = Debug|Win32
+		{B61B9D41-83C4-43FA-B02E-194104068981}.Release|Any CPU.ActiveCfg = Release|Win32
 		{B61B9D41-83C4-43FA-B02E-194104068981}.Release|x86.ActiveCfg = Release|Win32
 		{B61B9D41-83C4-43FA-B02E-194104068981}.Release|x86.Build.0 = Release|Win32
+		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|x86.ActiveCfg = Debug|Win32
 		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Debug|x86.Build.0 = Debug|Win32
+		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|Any CPU.ActiveCfg = Release|Win32
 		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|x86.ActiveCfg = Release|Win32
 		{EF933163-2DF6-422E-8BFD-72DEB99563AA}.Release|x86.Build.0 = Release|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Debug|x86.ActiveCfg = Debug|Win32
 		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Debug|x86.Build.0 = Debug|Win32
+		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Release|Any CPU.ActiveCfg = Release|Win32
 		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Release|x86.ActiveCfg = Release|Win32
 		{C77338DB-0FFA-4B79-B697-F20C97F791FA}.Release|x86.Build.0 = Release|Win32
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Debug|x86.Build.0 = Debug|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Release|x86.ActiveCfg = Release|Any CPU
+		{F75B7DFA-2151-4808-AF33-3B9F09B679A4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -63,7 +63,7 @@ void DarkGDK ( void )
 		/// final parameter controls the delay between switching frames, we pass
 		// in a value of 200, lower values will make the frames change quickly
 		// while higher values will make the frames change slowly
-		dbPlaySprite ( 1, 1, 16, 200 );
+		dbPlaySprite ( 1, 0, 15, 200 );
 
 		// the final call in our main loop is to dbSync, this function will
 		// update the screen and draw any graphics

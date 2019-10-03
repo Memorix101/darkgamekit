@@ -7,12 +7,13 @@ dbCloneSprite ✔
 dbHideSprite ✔
 dbDeleteSprite ✔
 dbSetSpriteFrame ✔
-dbSetSpritePriority 🟡 Add sort function to DGK draw loop
+dbSetSpritePriority ✔
 dbSpriteFrame ✔
 dbSpriteVisible ✔
 dbShowSprite ✔
 dbSetSpriteTextureCoord
 dbSizeSprite
+dbPlaySprite  - Implement start value
 
 ##### DBPRo behaviour
 
