@@ -264,7 +264,7 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 	//get sprite id in vector
 	int sprite_id = 0;
 	int start_offset = iStart;
-	
+
 	if (dbSpriteExist(iSprite) == 1)
 	{
 		for (int i = 0; i < spriteRef.size(); i++)
@@ -272,6 +272,11 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 			if (spriteRef[i].id == iSprite)
 			{
 				sprite_id = i;
+
+				if (spriteRef[sprite_id].currentFrame == 0) // set start offset
+				{
+					spriteRef[sprite_id].currentFrame = start_offset;
+				}
 			}
 			else
 			{
@@ -301,7 +306,7 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 			framesCounter = 0;
 
 			if (spriteRef[sprite_id].currentFrame > iEnd) // reset
-			{			
+			{
 				spriteRef[sprite_id].currentFrame_X = 0;
 				spriteRef[sprite_id].currentFrame_Y = 0;
 				spriteRef[sprite_id].currentFrame = start_offset;
@@ -320,7 +325,6 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 			std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame << " currentFrame_X " << spriteRef[sprite_id].currentFrame_X << " X "
 				<< spriteRef[sprite_id].rect.x << " Y " << spriteRef[sprite_id].rect.y << std::endl;
 
-			spriteRef[sprite_id].currentFrame_X++;
 			spriteRef[sprite_id].currentFrame++;
 		}
 	}
