@@ -1,5 +1,6 @@
 
 #include <cstddef>
+#include <algorithm>
 #include "DGKSprite.h"
 #include "DGKImage.h"
 
@@ -373,7 +374,13 @@ void dbSetSpriteFrame(int iSprite, int iFrame)
 	}
 }
 
-void dbSetSpritePriority(int iSprite, int iPriority)
+inline bool operator<(const DGKSprite& a, const DGKSprite& b)
+{
+	return a.layer < b.layer;
+}
+
+
+void dbSetSpritePriority(int iSprite, int iPriority) //By setting a single sprite a value of one will cause that sprite to be drawn last
 {
 	if (dbSpriteExist(iSprite) == 1)
 	{
@@ -382,10 +389,8 @@ void dbSetSpritePriority(int iSprite, int iPriority)
 			if (spriteRef[i].id == iSprite)
 			{
 				spriteRef[i].layer = iPriority;
-			}
-			else
-			{
-				//error
+				std::sort(spriteRef.begin(), spriteRef.end());
+				break;
 			}
 		}
 	}

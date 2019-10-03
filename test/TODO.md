@@ -6,7 +6,7 @@ dbSpriteImage ✔
 dbCloneSprite ✔
 dbHideSprite ✔
 dbDeleteSprite ✔
-dbSetSpriteFrame
+dbSetSpriteFrame ✔
 dbSetSpritePriority 🟡 Add sort function to DGK draw loop
 dbSpriteFrame ✔
 dbSpriteVisible ✔
