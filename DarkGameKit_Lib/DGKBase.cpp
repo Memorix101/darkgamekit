@@ -569,17 +569,17 @@ void DrawTexCoord(DGKSprite sprite, float fU[4], float fV[4])
 		rlBegin(RL_QUADS);
 		rlColor4ub(tint.r, tint.g, tint.b, tint.a);
 
-		rlTexCoord2f(-Ux[0], Vy[0]);
+		rlTexCoord2f(Ux[0], Vy[0]);
+		rlVertex2f(0.0f, 0.0f);
+
+		rlTexCoord2f(Ux[1], Vy[1]);
 		rlVertex2f(0.0f, height);
 
-		rlTexCoord2f(-Ux[1], Vy[1]);
+		rlTexCoord2f(Ux[2], Vy[2]);
 		rlVertex2f(width, height);
 
-		rlTexCoord2f(-Ux[2], Vy[2]);
+		rlTexCoord2f(Ux[3], Vy[3]);
 		rlVertex2f(width, 0.0f);
-
-		rlTexCoord2f(-Ux[3], Vy[3]);
-		rlVertex2f(0.0f, 0.0f);
 
 		rlEnd();
 		rlPopMatrix();
