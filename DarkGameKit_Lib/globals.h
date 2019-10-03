@@ -56,10 +56,11 @@ struct DGKSprite
 	Texture2D texture2d;
 	Rectangle rect; //animation
 	Vector2 pos = { 0, 0 };
-	float frames_x;
-	float frames_y;
+	int frames_x;
+	int frames_y;
 	int currentFrame = 0;
-	int currentFrameTmp = 0;
+	int currentFrame_X = 0;
+	int currentFrame_Y = 0;
 	const char* filepath;
 	/*float fU[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	float fV[4] = { 0.0f, 1.0f, 0.0f, 1.0f };*/
