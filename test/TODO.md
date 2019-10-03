@@ -12,8 +12,8 @@ dbSpriteFrame ✔
 dbSpriteVisible ✔
 dbShowSprite ✔
 dbSetSpriteTextureCoord
-dbSizeSprite
-dbPlaySprite  - Implement start value
+dbSizeSprite ✔ -- Needs to be validated in combination with dbSetSpriteTextureCoord
+dbPlaySprite -- iDelay incorrect
 
 ##### DBPRo behaviour
 

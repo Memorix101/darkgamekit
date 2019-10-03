@@ -560,26 +560,46 @@ void DrawTexCoord(DGKSprite sprite, float fU[4], float fV[4])
 		float height = (float)sprite.texture2d.height;
 		Color tint = WHITE;
 		Vector2 pos = sprite.pos;
-
+		Vector2 origin = { 0.0f, 0.0f };
+		float rotation = 0.0f;
+		
+		// based on https://github.com/raysan5/raylib/blob/df84f93938588793095df39d7998a03b11bc98d4/src/textures.c#L2708
+		// OpenGL vs DirectX https://imgur.com/gWSnafo
+		
 		rlEnableTexture(sprite.texture2d.id);
 
 		rlPushMatrix();
 		rlTranslatef(pos.x, pos.y, 0.0f);
+        rlRotatef(rotation, 0.0f, 0.0f, 1.0f);
+        rlTranslatef(-origin.x, -origin.y, 0.0f);
 
 		rlBegin(RL_QUADS);
 		rlColor4ub(tint.r, tint.g, tint.b, tint.a);
+		rlNormal3f(0.0f, 0.0f, 1.0f); // Normal vector pointing towards viewer
 
-		rlTexCoord2f(Ux[0], Vy[0]);
+		rlTexCoord2f(Ux[0], Vy[0]); // bottom left
+		rlVertex2f(0.0f, 0.0f);
+
+		rlTexCoord2f(Ux[1], Vy[1]); // top left
+		rlVertex2f(0.0f, height);
+
+		rlTexCoord2f(Ux[2], Vy[2]); // top right
+		rlVertex2f(width, height);
+
+		rlTexCoord2f(Ux[3], Vy[3]); // bottom right
+		rlVertex2f(width, 0.0f);
+
+		/*rlTexCoord2f(Ux[0], Vy[0]);
 		rlVertex2f(0.0f, 0.0f);
 
 		rlTexCoord2f(Ux[1], Vy[1]);
-		rlVertex2f(0.0f, height);
+		rlVertex2f(width, 0.0f);
 
 		rlTexCoord2f(Ux[2], Vy[2]);
 		rlVertex2f(width, height);
 
 		rlTexCoord2f(Ux[3], Vy[3]);
-		rlVertex2f(width, 0.0f);
+		rlVertex2f(0.0f, height);*/	
 
 		rlEnd();
 		rlPopMatrix();
@@ -698,7 +718,7 @@ void Run()
 
 void StartGDK()
 {
-	printf("DarkGDK Alpha 0.1\n");
+	printf("DarkGDK Alpha v0.1\n");
 	Init();
 	//Run();
 }

@@ -250,7 +250,6 @@ void dbCreateAnimatedSprite(int iSprite, const char* szFilename, int iAcross, in
 	_sprite.id = iSprite;
 	//_sprite.image_id = iImage;
 	_sprite.animated = true;
-	_sprite.visible = true;
 	_sprite.texture2d = tex2D;
 	_sprite.rect = frameRec;
 	_sprite.frames_x = iAcross;
@@ -289,14 +288,17 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		if (iDelay <= 0)
 			iDelay = 1;
 
-		if (iDelay / 0.02f > 100)
+		/*if (iDelay / 0.02f > 100)
 		{
 			framesSpeed = iDelay * 0.02f;
 		}
 		else
 		{
 			framesSpeed = iDelay / 0.02f;
-		}
+		}*/
+
+		if(GetFrameTime() != 0)
+			framesSpeed = (iDelay / GetFrameTime()) * 0.3f;
 
 		if (framesSpeed <= 0)
 			framesSpeed = 1;
@@ -351,9 +353,7 @@ void dbSetSpriteFrame(int iSprite, int iFrame)
 				//error
 			}
 		}
-
-		std::cout << "dbSetSpriteFrame" << std::endl;
-
+		
 		//set frame
 		spriteRef[sprite_id].currentFrame = iFrame;
 		int f_x = (iFrame % spriteRef[sprite_id].frames_x);

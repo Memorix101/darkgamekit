@@ -11,7 +11,7 @@
 #include <random>
 #include <iostream>
 #include <stdlib.h>
-#include "globals.h"
+#include "DGKGlobals.h"
 
 //public:
 	//DarkGameKit();

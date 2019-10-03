@@ -98,7 +98,7 @@
     <ClInclude Include="DGKSound.h" />
     <ClInclude Include="DGKSprite.h" />
     <ClInclude Include="DGKText.h" />
-    <ClInclude Include="globals.h" />
+    <ClInclude Include="DGKGlobals.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DGKBase.cpp" />
