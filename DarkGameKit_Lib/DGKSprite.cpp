@@ -264,6 +264,9 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 	int sprite_id = 0;
 	int start_offset = iStart;
 
+	if(iStart == 1)
+			iStart = 0;
+
 	if (dbSpriteExist(iSprite) == 1)
 	{
 		for (int i = 0; i < spriteRef.size(); i++)
@@ -288,17 +291,18 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		if (iDelay <= 0)
 			iDelay = 1;
 
-		/*if (iDelay / 0.02f > 100)
+		if (iDelay / 0.02f > 100)
 		{
 			framesSpeed = iDelay * 0.02f;
 		}
 		else
 		{
 			framesSpeed = iDelay / 0.02f;
-		}*/
-
-		if(GetFrameTime() != 0)
-			framesSpeed = (iDelay / GetFrameTime()) * 0.3f;
+		}
+		
+		/*
+		if (GetFrameTime() != 0)
+			framesSpeed = (iDelay / GetFrameTime()) * 0.3f;*/
 
 		if (framesSpeed <= 0)
 			framesSpeed = 1;
@@ -307,11 +311,11 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		{
 			framesCounter = 0;
 
-			if (spriteRef[sprite_id].currentFrame > iEnd) // reset
+			if (spriteRef[sprite_id].currentFrame > iEnd - 1) // reset
 			{
 				spriteRef[sprite_id].currentFrame_X = 0;
 				spriteRef[sprite_id].currentFrame_Y = 0;
-				spriteRef[sprite_id].currentFrame = start_offset;
+				spriteRef[sprite_id].currentFrame = start_offset - 1;
 				//std::cout << "iEnd " << std::endl;
 			}
 
@@ -353,7 +357,7 @@ void dbSetSpriteFrame(int iSprite, int iFrame)
 				//error
 			}
 		}
-		
+
 		//set frame
 		spriteRef[sprite_id].currentFrame = iFrame;
 		int f_x = (iFrame % spriteRef[sprite_id].frames_x);
@@ -577,11 +581,6 @@ int dbSpriteFrame(int iSprite)
 				if (spriteRef[i].animated == true)
 				{
 					frame = spriteRef[i].currentFrame;
-
-					if (frame == 0)
-					{
-						frame = 1;
-					}
 					break;
 				}
 

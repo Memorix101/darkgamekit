@@ -11,7 +11,7 @@ dbSetSpritePriority ✔
 dbSpriteFrame ✔
 dbSpriteVisible ✔
 dbShowSprite ✔
-dbSetSpriteTextureCoord
+dbSetSpriteTextureCoord -- Vertex manipulation incorrect results
 dbSizeSprite ✔ -- Needs to be validated in combination with dbSetSpriteTextureCoord
 dbPlaySprite -- iDelay incorrect
 
@@ -19,7 +19,7 @@ dbPlaySprite -- iDelay incorrect
 
 Tested with DBPro v1.0.7
 
-print command text behind image
+print command text behind image ✔
 draw textures outside while loop
 restructure sprite to be linked to images instead of being standalone
 sync currentFrame with sprite x y frame
