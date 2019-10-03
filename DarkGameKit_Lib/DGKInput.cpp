@@ -33,7 +33,7 @@ bool dbKeyState(int iScanCode)
 		break;
 	}
 
-	if (IsKeyPressed(_scancode))
+	if (IsKeyDown(_scancode))
 	{
 		std::cout << "dbKeyState " << iScanCode << std::endl;
 		pressed = true;

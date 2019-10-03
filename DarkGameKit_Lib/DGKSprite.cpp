@@ -298,7 +298,7 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		{
 			framesCounter = 0;
 
-			if (spriteRef[sprite_id].currentFrame > iEnd - 1)
+			if (spriteRef[sprite_id].currentFrame > iEnd)
 			{
 				// reset
 				spriteRef[sprite_id].currentFrame_X = 0;
@@ -357,7 +357,7 @@ void dbSetSpriteFrame(int iSprite, int iFrame)
 		//set frame
 		spriteRef[sprite_id].currentFrame = iFrame;
 
-		int f_x = (iFrame % spriteRef[sprite_id].frames_x) - 1;
+		int f_x = (iFrame % spriteRef[sprite_id].frames_x);
 		int f_y = iFrame / spriteRef[sprite_id].frames_y;
 
 		spriteRef[sprite_id].currentFrame_X = f_x;
