@@ -682,8 +682,8 @@ void Run()
 	ClearBackground(BLACK);
 	// Test
 	//DrawSprite({a++, 0}); 
-	DrawTrailModeWatermark();
 	CallOnce();
+	DrawTrailModeWatermark();
 	/*a++;
 	std::string test_txt = "abc " + std::to_string(a);
 	DrawText(test_txt.c_str(), 200, 10, 12, WHITE);*/
