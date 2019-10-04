@@ -89,7 +89,10 @@ void dbSprite(int iSprite, int iX, int iY, int iImage)
 	}
 }
 
-void dbSetSprite(int iSprite, int iBackSave, int iTransparency) {}
+void dbSetSprite(int iSprite, int iBackSave, int iTransparency)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 void dbDeleteSprite(int iSprite)
 {
@@ -182,8 +185,15 @@ void dbHideSprite(int iSprite)
 	}
 }
 
-void dbHideAllSprites(void) {}
-void dbShowAllSprites(void) {}
+void dbHideAllSprites(void)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbShowAllSprites(void)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 void dbMoveSprite(int iSprite, float fVelocity)
 {
@@ -199,8 +209,15 @@ void dbMoveSprite(int iSprite, float fVelocity)
 		}
 	}
 }
-void dbOffsetSprite(int iSprite, int iX, int iY) {}
-void dbScaleSprite(int iSprite, int iScale) {}
+void dbOffsetSprite(int iSprite, int iX, int iY)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbScaleSprite(int iSprite, int iScale)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 void dbSizeSprite(int iSprite, int iX, int iY)
 {
@@ -217,10 +234,25 @@ void dbSizeSprite(int iSprite, int iX, int iY)
 	}
 }
 
-void dbStretchSprite(int iSprite, int iX, int iY) {}
-void dbRotateSprite(int iSprite, float fAngle) {}
-void dbFlipSprite(int iSprite) {}
-void dbMirrorSprite(int iSprite) {}
+void dbStretchSprite(int iSprite, int iX, int iY)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbRotateSprite(int iSprite, float fAngle)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbFlipSprite(int iSprite)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbMirrorSprite(int iSprite)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 void dbPasteSprite(int iSprite, int iX, int iY)
 {
@@ -329,8 +361,8 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 			spriteRef[sprite_id].rect.x = (float)spriteRef[sprite_id].currentFrame_X * spriteRef[sprite_id].rect.width;
 			spriteRef[sprite_id].rect.y = (float)spriteRef[sprite_id].currentFrame_Y * spriteRef[sprite_id].rect.height;
 
-			std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame << " currentFrame_X " << spriteRef[sprite_id].currentFrame_X << " X "
-				<< spriteRef[sprite_id].rect.x << " Y " << spriteRef[sprite_id].rect.y << std::endl;
+			/*std::cout << "currentFrame " << spriteRef[sprite_id].currentFrame << " currentFrame_X " << spriteRef[sprite_id].currentFrame_X << " X "
+				<< spriteRef[sprite_id].rect.x << " Y " << spriteRef[sprite_id].rect.y << std::endl;*/
 
 			spriteRef[sprite_id].currentFrame++;
 		}
@@ -477,11 +509,13 @@ int dbSpriteY(int iSprite)
 
 int dbSpriteOffsetX(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteOffsetY(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
@@ -492,6 +526,7 @@ int dbSpriteScaleX(int iSprite)
 
 int dbSpriteScaleY(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
@@ -547,26 +582,31 @@ int dbSpriteImage(int iSprite)
 
 int dbSpriteMirrored(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteFlipped(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteHit(int iSprite, int iTarget)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteCollision(int iSprite, int iTarget)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbSpriteAngle(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
@@ -599,21 +639,25 @@ int dbSpriteFrame(int iSprite)
 
 int dbSpriteAlpha(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteRed(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteGreen(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSpriteBlue(int iSprite)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 

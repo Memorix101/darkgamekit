@@ -24,17 +24,17 @@ int DGKPrintCount;
 
 void dbSyncOn()
 {
-	//sync_i = 1;
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSyncOff()
 {
-	//sync_i = 0;
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSync()
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSyncRate(int rate)
@@ -44,12 +44,12 @@ void dbSyncRate(int rate)
 
 void dbFastsync(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbCLS(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSetCursor(int x, int y)
@@ -129,62 +129,62 @@ void dbPrint(std::string text)
 
 void dbInput(std::string text, int variable)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbWait(int ms)
 {
-	//SDL_Delay(ms);
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSleep(int ms)
 {
-	//SDL_Delay(ms);
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbWaitKey(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbWaitMouse(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSuspendForKey(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbSuspendForMouse(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbDrawToBack(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbDrawToFront(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbDrawSpritesFirst(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbDrawSpritesLast(void)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 void dbRandomize(int seed)
 {
-
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 }
 
 int dbRND(int range)
@@ -254,60 +254,72 @@ int dbINT(float value)
 
 float dbEXP(float value)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbTimer(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 char* dbInKey$(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 char* dbCL$(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 char* dbGetDate$(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 char* dbGetTime$(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbCurveValue(float destination, float curve, float speed)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbWrapValue(float angle)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbNewXValue(float x, float angle, float step)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbNewYValue(float x, float angle, float step)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbNewZValue(float x, float angle, float step)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dvCurveValue(float fDestination, float fCurve, float fSpeed)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }

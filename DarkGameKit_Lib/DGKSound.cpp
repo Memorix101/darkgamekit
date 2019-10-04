@@ -12,8 +12,15 @@ void dbLoadSound(const char* szFilename, int iSound)
 	soundRef.push_back(_sound);
 }
 
-void dbLoad3DSound(const char* szFilename, int iSound) { }
-void dbSaveSound(const char* szFilename, int iSound) { }
+void dbLoad3DSound(const char* szFilename, int iSound)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbSaveSound(const char* szFilename, int iSound)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 void dbDeleteSound(int iSound)
 {
@@ -152,10 +159,25 @@ void dbResumeSound(int iSound)
 }
 
 
-void dbPositionSound(int iSound, float fX, float fY, float fZ) { }
-void dbRecordSound(int iSound) { }
-void dbStopRecordingSound(void) { }
-void dbSetSoundPan(int iSound, int iPan) { }
+void dbPositionSound(int iSound, float fX, float fY, float fZ)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbRecordSound(int iSound)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbStopRecordingSound(void)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbSetSoundPan(int iSound, int iPan)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 void dbSetSoundSpeed(int iSound, int iFrequency) {
 	if (dbSoundExist(iSound) == 1)
@@ -185,10 +207,25 @@ void dbSetSoundSpeed(int iSound, int iFrequency) {
 	}
 }
 
-void dbSetSoundVolume(int iSound, int iVolume) { }
-void dbPositionListener(float fX, float fY, float fZ) { }
-void dbRotateListener(float fX, float fY, float fZ) { }
-void dbScaleListener(float fScale) { }
+void dbSetSoundVolume(int iSound, int iVolume)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbPositionListener(float fX, float fY, float fZ)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbRotateListener(float fX, float fY, float fZ)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
+
+void dbScaleListener(float fScale)
+{
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
+}
 
 int dbSoundExist(int iSound)
 {
@@ -209,80 +246,96 @@ int dbSoundExist(int iSound)
 
 int dbSoundType(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSoundPlaying(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSoundLooping(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSoundPaused(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbSoundPositionX(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbSoundPositionY(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbSoundPositionZ(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSoundPan(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSoundSpeed(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 int dbSoundVolume(int iSound)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbListenerPositionX(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbListenerPositionY(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbListenerPositionZ(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbListenerAngleX(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbListenerAngleY(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
 
 float dbListenerAngleZ(void)
 {
+	std::cout << __func__ << " NOT IMPLEMENTED" << std::endl;
 	return NULL;
 }
