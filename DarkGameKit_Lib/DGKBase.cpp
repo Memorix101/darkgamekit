@@ -10,7 +10,7 @@ std::vector<DGKText> textRef;
 bool printOnce = false;
 
 // Test
-float a = 10;
+//float a = 10;
 
 int fontHeight = 0;
 int fontWidth = 0;
@@ -693,7 +693,7 @@ void CallOnce()
 		}
 	}
 
-	//draw loop
+	//sprite draw loop
 	for (auto sprite : spriteRef)
 	{
 		if (sprite.animated == false && sprite.visible == true && sprite.setUV == false)
@@ -709,6 +709,15 @@ void CallOnce()
 			DrawTexCoord(sprite, sprite.fU, sprite.fV);
 		}
 
+	}	
+
+	//sprite draw loop
+	for (auto image : imageRef)
+	{
+		if (image.visible == true)
+		{
+			DrawTexture(LoadTextureFromImage(image.image), image.pos.x, image.pos.y, WHITE);
+		}
 	}
 }
 
@@ -725,7 +734,7 @@ void Run()
 	/*a++;
 	std::string test_txt = "abc " + std::to_string(a);
 	DrawText(test_txt.c_str(), 200, 10, 12, WHITE);*/
-	//DrawFPS(10, 10);
+	DrawFPS(10, 10);
 	EndDrawing();
 	quit = false;
 	//}

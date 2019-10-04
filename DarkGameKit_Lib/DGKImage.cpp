@@ -1,4 +1,5 @@
 #include "DGKImage.h"
+#include "DGKSprite.h"
 
 void dbLoadImage(const char* szFilename, int iImage)
 {
@@ -30,7 +31,27 @@ void dbDeleteImage(int iImage)
 	}
 }
 void dbGetImage(int iImage, int iLeft, int iTop, int iRight, int iBottom) { }
-void dbPasteImage(int iImage, int iX, int iY) { }
+
+void dbPasteImage(int iImage, int iX, int iY)
+{
+		if (dbImageExist(iImage) == 1)
+	{
+		for (int i = 0; i < imageRef.size(); i++)
+		{
+			if (imageRef[i].id == iImage)
+			{
+				imageRef[i].visible = true;
+				imageRef[i].pos = {(float)iX, (float)iY};
+				break;
+			}
+		}
+	}
+	else
+	{
+		//error
+	}
+}
+
 void dbSetImageColorKey(int iRed, int iGreen, int iBlue) { }
 
 int dbImageExist(int iImage)

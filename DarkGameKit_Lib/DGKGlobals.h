@@ -83,6 +83,8 @@ struct DGKImage
 {
 	int id;
 	Image image;
+	bool visible = false;
+	Vector2 pos = { 0, 0 };
 };
 extern std::vector<DGKImage> imageRef;
 

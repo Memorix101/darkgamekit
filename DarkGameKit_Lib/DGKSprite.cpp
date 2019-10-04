@@ -302,12 +302,13 @@ void dbPlaySprite(int iSprite, int iStart, int iEnd, int iDelay)
 		
 		/*
 		if (GetFrameTime() != 0)
-			framesSpeed = (iDelay / GetFrameTime()) * 0.3f;*/
+			framesSpeed = (iDelay / GetFPS()) * 0.3f;*/
 
 		if (framesSpeed <= 0)
 			framesSpeed = 1;
 
-		if (framesCounter >= (60 / framesSpeed))
+		//if (framesCounter >= (60 / framesSpeed))
+		if (framesCounter >= (GetFPS() / framesSpeed))
 		{
 			framesCounter = 0;
 
