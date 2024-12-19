@@ -31,7 +31,6 @@
     <ClInclude Include="DGKCore.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="globals.h" />
     <ClInclude Include="DGKBase.h" />
     <ClInclude Include="DGKText.h">
       <Filter>Text</Filter>
@@ -54,6 +53,7 @@
     <ClInclude Include="DGKInput.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="DGKGlobals.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DGKCore.cpp">
